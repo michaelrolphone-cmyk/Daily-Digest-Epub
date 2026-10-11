@@ -1,6 +1,18 @@
 # Daily Digest
 
-A dated archive of original, source-linked daily newspapers in EPUB format, designed for offline e-ink reading.
+A dated archive of original, source-linked technical discovery papers in EPUB format, designed for offline e-ink reading.
+
+## Editorial direction
+
+Read [EDITORIAL.md](EDITORIAL.md) before researching or writing each issue. The current direction, revised October 11, 2026, supersedes the original general-news mix:
+
+- Recent technology breakthroughs with mechanisms, architecture, measurements and implementation details.
+- Current physics studies with methods, results, numerical context and limitations, written without sensationalism.
+- ESP32 news and projects from Hackaday and Reddit's r/esp32, followed through to original project code, schematics and measurements, plus official Espressif engineering updates.
+
+No politics or general-news filler. Prioritize knowledge gained and article depth over headline count. Check new work daily, but include clearly dated recent studies and projects rather than padding a strict 24-hour window. The earlier archived editions remain intact; they are not the editorial template for future issues.
+
+The scheduled research/publication task runs at 02:00 America/Boise and reads this policy. The GitHub publishing workflow builds and validates supplied editorial source; it does not itself research the news.
 
 ## Download endpoints
 
@@ -26,6 +38,7 @@ catalog.json                         # complete newest-first catalog
 catalog.opds                         # OPDS 1.2 acquisition feed
 ARCHIVE.md                           # browse by year and month
 index.html                           # simple static archive page
+EDITORIAL.md                         # current topic, depth and source-selection policy
 schema/edition.schema.json           # authoring format
 schema/catalog.schema.json           # download catalog format
 tools/publish.py                      # dependency-free builder and catalog updater
