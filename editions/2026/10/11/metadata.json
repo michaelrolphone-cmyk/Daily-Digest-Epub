@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "urn:daily-digest:2026-10-11",
+  "date": "2026-10-11",
+  "title": "Daily Digest — October 11, 2026",
+  "summary": "Fuel, public trust, and machines that choose the next experiment",
+  "language": "en",
+  "published_at": "2026-10-11T07:22:54Z",
+  "filename": "daily-digest-2026-10-11.epub",
+  "path": "editions/2026/10/11/daily-digest-2026-10-11.epub",
+  "download_url": "https://raw.githubusercontent.com/michaelrolphone-cmyk/Daily-Digest-Epub/main/editions/2026/10/11/daily-digest-2026-10-11.epub",
+  "media_type": "application/epub+zip",
+  "size_bytes": 29070,
+  "sha256": "99ad10667165ec2906a57a11de4cac012878ac43f101d99422087312a58b2a29",
+  "reporting_cutoff": "2026-10-11T01:20:00-06:00",
+  "article_count": 12,
+  "word_count": 3751,
+  "estimated_reading_minutes": 19,
+  "source_count": 26
+}
