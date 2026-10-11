@@ -83,6 +83,8 @@ def validate_edition(edition: dict, path: Path) -> None:
     require(cutoff.astimezone(tz).date().isoformat() == d, 'Cutoff/date mismatch')
     for key in ('title', 'subtitle', 'language', 'editor_note'):
         require(isinstance(edition.get(key), str) and bool(edition[key].strip()), f'Missing {key}')
+    label = edition.get('edition_label', 'EVENING EDITION')
+    require(isinstance(label, str) and 0 < len(label.strip()) <= 80, 'Invalid edition label')
     articles = edition['articles']
     require(isinstance(articles, list) and len(articles) > 0, 'No articles')
     ids = set()
@@ -187,7 +189,7 @@ def build_epub(edition: dict) -> tuple[bytes, str, int]:
     source_count = len({s['url'] for a in articles for s in a['sources']})
     words = len(re.findall(r'\b[\w’\'-]+\b', ' '.join(p['text'] for a in articles for p in a['paragraphs'])))
     minutes = max(1, round(words / 200))
-    cover = (f'<p class="kicker">EVENING EDITION · {escape(d)}</p>'
+    cover = (f'<p class="kicker">{escape(edition.get("edition_label", "EVENING EDITION"))} · {escape(d)}</p>'
              '<h1 class="masthead">DAILY<br/>DIGEST</h1>'
              f'<p class="dek">{escape(edition["subtitle"])}</p>'
              f'<p>{escape(human_date)}</p>'

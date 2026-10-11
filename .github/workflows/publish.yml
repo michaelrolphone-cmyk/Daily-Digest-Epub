@@ -46,6 +46,9 @@ jobs:
             git commit -m 'Publish validated newspaper files and refresh download catalogs'
             git push origin HEAD:main
           fi
+      - name: Verify public X4 download endpoints
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: python3 tools/verify_publication.py
       - name: Attach verified newspaper and publishing sources
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:

@@ -8,6 +8,7 @@
     "date": {"type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
     "title": {"type": "string", "minLength": 1},
     "subtitle": {"type": "string", "minLength": 1},
+    "edition_label": {"type": "string", "minLength": 1, "maxLength": 80, "description": "Cover label; omitted retains the original EVENING EDITION."},
     "language": {"type": "string", "minLength": 2},
     "timezone": {"type": "string", "minLength": 1},
     "published_at": {"type": "string", "format": "date-time"},
