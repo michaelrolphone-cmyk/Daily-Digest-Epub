@@ -1,0 +1,66 @@
+name: Build and publish daily papers
+on:
+  push:
+    branches: [main]
+    paths: ['editions/**', 'tools/**', 'tests/**', 'schema/**', '.github/workflows/publish.yml']
+  pull_request:
+    paths: ['editions/**', 'tools/**', 'tests/**', 'schema/**', '.github/workflows/publish.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: daily-digest-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Test publisher
+        run: python3 -m unittest discover -s tests -v
+      - name: Build and verify deterministic output
+        run: |
+          python3 tools/publish.py
+          python3 tools/publish.py --check
+      - name: Validate with EPUBCheck 5.4.0
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 https://github.com/w3c/epubcheck/releases/download/v5.4.0/epubcheck-5.4.0.zip -o /tmp/epubcheck.zip
+          echo '33350c61038e71dfb3d45a76aed04bf5481e6d5500cb780f6e98db8bbd15a28c  /tmp/epubcheck.zip' | sha256sum -c -
+          unzip -q /tmp/epubcheck.zip -d /tmp/epubcheck
+          mkdir -p validation
+          while IFS= read -r -d '' book; do
+            name=$(basename "$book" .epub)
+            java -jar /tmp/epubcheck/epubcheck-5.4.0/epubcheck.jar "$book" --json "validation/$name.json"
+          done < <(find editions -name '*.epub' -print0)
+      - name: Publish generated files
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add editions latest.epub latest.json catalog.json catalog.opds ARCHIVE.md index.html
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish validated newspaper files and refresh download catalogs'
+            git push origin HEAD:main
+          fi
+      - name: Attach verified newspaper and publishing sources
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: daily-digest-library
+          path: |
+            editions/
+            latest.epub
+            latest.json
+            catalog.json
+            catalog.opds
+            ARCHIVE.md
+            index.html
+            tools/
+            tests/
+            schema/
+            validation/
+            README.md
+          if-no-files-found: error

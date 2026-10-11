@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Daily Digest download catalog v1",
+  "type": "object",
+  "required": ["schema_version", "title", "updated_at", "latest", "editions"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "title": {"type": "string"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "latest": {"$ref": "#/$defs/edition"},
+    "editions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/edition"}}
+  },
+  "$defs": {
+    "edition": {
+      "type": "object",
+      "required": ["schema_version", "id", "date", "title", "published_at", "filename", "path", "download_url", "media_type", "size_bytes", "sha256"],
+      "properties": {
+        "schema_version": {"const": 1}, "id": {"type": "string"}, "date": {"type": "string", "format": "date"}, "title": {"type": "string"},
+        "published_at": {"type": "string", "format": "date-time"}, "filename": {"type": "string"}, "path": {"type": "string"},
+        "download_url": {"type": "string", "format": "uri", "pattern": "^https://"}, "media_type": {"const": "application/epub+zip"},
+        "size_bytes": {"type": "integer", "minimum": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}
