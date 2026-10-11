@@ -9,6 +9,7 @@
     "title": {"type": "string", "minLength": 1},
     "subtitle": {"type": "string", "minLength": 1},
     "edition_label": {"type": "string", "minLength": 1, "maxLength": 80, "description": "Cover label; omitted retains the original EVENING EDITION."},
+    "cover_topics": {"type": "string", "minLength": 1, "maxLength": 120, "description": "Optional topic strapline; omission retains historical cover bytes."},
     "language": {"type": "string", "minLength": 2},
     "timezone": {"type": "string", "minLength": 1},
     "published_at": {"type": "string", "format": "date-time"},

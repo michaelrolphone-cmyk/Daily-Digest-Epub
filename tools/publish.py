@@ -85,6 +85,8 @@ def validate_edition(edition: dict, path: Path) -> None:
         require(isinstance(edition.get(key), str) and bool(edition[key].strip()), f'Missing {key}')
     label = edition.get('edition_label', 'EVENING EDITION')
     require(isinstance(label, str) and 0 < len(label.strip()) <= 80, 'Invalid edition label')
+    topics = edition.get('cover_topics', 'World · Technology · Science · The West')
+    require(isinstance(topics, str) and 0 < len(topics.strip()) <= 120, 'Invalid cover topics')
     articles = edition['articles']
     require(isinstance(articles, list) and len(articles) > 0, 'No articles')
     ids = set()
@@ -194,7 +196,7 @@ def build_epub(edition: dict) -> tuple[bytes, str, int]:
              f'<p class="dek">{escape(edition["subtitle"])}</p>'
              f'<p>{escape(human_date)}</p>'
              f'<p class="meta">{len(articles)} articles · {source_count} sources · about {minutes} minutes</p>'
-             '<p class="rule">World · Technology · Science · The West</p>'
+             f'<p class="rule">{escape(edition.get("cover_topics", "World · Technology · Science · The West"))}</p>'
              '<p><a href="front.xhtml">Start with the front page</a></p>'
              '<p><a href="nav.xhtml">Browse this edition</a></p>')
     chapters = [('cover', 'cover.xhtml', 'Daily Digest', xhtml('Daily Digest', cover, language))]
