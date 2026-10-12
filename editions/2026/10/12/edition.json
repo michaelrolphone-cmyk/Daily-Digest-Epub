@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-12",
+  "title": "Daily Digest — October 12, 2026 · Technical Edition",
+  "subtitle": "Levitated entanglement, dynamical gauge fields, topological memory, analog circuits and ESP32 engineering",
+  "edition_label": "MORNING · TECHNICAL DISCOVERY",
+  "cover_topics": "PHYSICS · CIRCUITS · ESP32",
+  "language": "en",
+  "timezone": "America/Boise",
+  "published_at": "2026-10-12T02:20:00-06:00",
+  "reporting_cutoff": "2026-10-12T02:06:03-06:00",
+  "editor_note": "Six technical investigations with their actual research or project dates: levitated optomechanical entanglement; a hybrid trapped-ion gauge simulator; a new mathematical account of noisy topological phases; silicon reverse engineering from October 11; and two ESP32 engineering projects from r/esp32. Expect experimental methods, numerical context, worked calculations, implementation trade-offs and specific limits, not politics or headlines alone.",
+  "front_page": [],
+  "articles": []
+}
