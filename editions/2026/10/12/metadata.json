@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "urn:daily-digest:2026-10-12",
+  "date": "2026-10-12",
+  "title": "Daily Digest — October 12, 2026 · Technical Discovery",
+  "summary": "Picosecond superconductors, graphene phase probes, OLED chemistry and real-world ESP32 architecture",
+  "language": "en",
+  "published_at": "2026-10-12T09:08:17Z",
+  "filename": "daily-digest-2026-10-12.epub",
+  "path": "editions/2026/10/12/daily-digest-2026-10-12.epub",
+  "download_url": "https://raw.githubusercontent.com/michaelrolphone-cmyk/Daily-Digest-Epub/main/editions/2026/10/12/daily-digest-2026-10-12.epub",
+  "media_type": "application/epub+zip",
+  "size_bytes": 30848,
+  "sha256": "0b39a40cb33ecd304922e0b37928789df7c2ad4d6bd857697a2f1c47f9d7ce40",
+  "reporting_cutoff": "2026-10-12T03:08:17-06:00",
+  "article_count": 7,
+  "word_count": 5441,
+  "estimated_reading_minutes": 27,
+  "source_count": 13
+}
