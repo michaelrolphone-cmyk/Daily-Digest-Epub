@@ -545,7 +545,9 @@
           "text": "Application installation creates another critical boundary. The project's public materials discuss an app store, over-the-air updates, package integrity checks and changes in its v2 series intended to strengthen permissions and certificate validation. A checksum can identify accidental corruption, but it does not by itself prove an update came from a trusted publisher: authenticity requires a trust anchor or signature model. Equally, verifying an update package does not make the code inside it safe if a script can call unrestricted filesystem or GPIO operations. Good sandbox design makes permitted capabilities explicit.",
           "kind": "reporting",
           "refs": [
-            1
+            1,
+            2,
+            3
           ]
         },
         {
@@ -606,7 +608,8 @@
           "text": "The authors scan the array 333 times per second. Each scan reads 16 addresses times three analog returns, or 48 ADC samples. Multiplying 48 by 333 gives 15,984 ADC conversions per second, besides GPIO settling time and other firmware work. A scan takes one divided by 333, approximately three milliseconds from start to next scheduled start. These figures describe the authors' scheduler and a derived conversion count, not a standalone measurement of the ESP32-S3 ADC's maximum sample rate.",
           "kind": "reporting",
           "refs": [
-            1
+            1,
+            2
           ]
         },
         {
