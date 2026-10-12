@@ -30,6 +30,19 @@
           "refs": [
             1
           ]
+        },
+        {
+          "heading": "Two optical jobs",
+          "text": "Field A is red-detuned from its cavity resonance and removes mechanical excitations. Blue-detuned field B produces paired optical and mechanical excitations. The exchange rate of A is 11.7 ± 0.2 kHz when divided by 2π; B's coupling is 6.3 ± 0.1 kHz. Keeping cooling stronger than amplification prevents instability. The cavity linewidth is 58 ± 0.6 kHz, below the roughly 105 kHz mechanical bright-mode frequency; thus red and blue mechanical sidebands can be resolved.",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "Heterodyne detection measures phase-sensitive signals from both optical channels using local-oscillator offsets of 1.4 and 2.0 MHz. Spectral correlations reconstruct optical and mechanical quadrature covariances. The total collection-plus-detection efficiency is only 0.283 ± 0.006, and loss adds vacuum noise. Careful calibration is therefore as important as achieving a strong coupling rate.",
+          "refs": [
+            1
+          ]
         }
       ],
       "sources": [
