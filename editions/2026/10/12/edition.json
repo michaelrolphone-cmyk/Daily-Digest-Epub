@@ -11,5 +11,35 @@
   "reporting_cutoff": "2026-10-12T02:06:03-06:00",
   "editor_note": "Six technical investigations with their actual research or project dates: levitated optomechanical entanglement; a hybrid trapped-ion gauge simulator; a new mathematical account of noisy topological phases; silicon reverse engineering from October 11; and two ESP32 engineering projects from r/esp32. Expect experimental methods, numerical context, worked calculations, implementation trade-offs and specific limits, not politics or headlines alone.",
   "front_page": [],
-  "articles": []
+  "articles": [
+    {
+      "id": "levitated",
+      "section": "Physics",
+      "title": "Levitated oscillator and output light",
+      "dek": "A measured test of entanglement.",
+      "timing": "Science October 1, 2026",
+      "paragraphs": [
+        {
+          "text": "A nanoparticle is optically trapped inside a cavity. A separate optical field carries its quantum correlations into an external measurement. The experiment operates at room temperature under ultrahigh vacuum.",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "The researchers find a measured nonseparability parameter below unity. Its statistical and systematic uncertainties are reported separately. It is a quantum correlation result, not a demonstration of a large network.",
+          "refs": [
+            1
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "publisher": "Science",
+          "title": "Stationary entanglement of a levitated oscillator with an optical field",
+          "url": "https://doi.org/10.1126/science.aeh1375",
+          "published": "2026-10-01"
+        }
+      ]
+    }
+  ]
 }
