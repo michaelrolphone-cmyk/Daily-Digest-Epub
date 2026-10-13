@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "urn:daily-digest:2026-10-13",
+  "date": "2026-10-13",
+  "title": "Daily Digest — October 13, 2026 · Technical Discovery",
+  "summary": "Active-matter topology, programmable quantum states, oscillator gates, photovoltaics and ESP32 engineering",
+  "language": "en",
+  "published_at": "2026-10-13T08:07:20Z",
+  "filename": "daily-digest-2026-10-13.epub",
+  "path": "editions/2026/10/13/daily-digest-2026-10-13.epub",
+  "download_url": "https://raw.githubusercontent.com/michaelrolphone-cmyk/Daily-Digest-Epub/main/editions/2026/10/13/daily-digest-2026-10-13.epub",
+  "media_type": "application/epub+zip",
+  "size_bytes": 27656,
+  "sha256": "9227365a2fda623416e5edaccf96bd6367b1b97d5b242554f765450d1fd5e34e",
+  "reporting_cutoff": "2026-10-13T02:07:20-06:00",
+  "article_count": 7,
+  "word_count": 4551,
+  "estimated_reading_minutes": 23,
+  "source_count": 14
+}
