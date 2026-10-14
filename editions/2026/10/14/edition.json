@@ -1,0 +1,474 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-14",
+  "title": "Daily Digest — October 14, 2026 · Technical Discovery",
+  "subtitle": "Altermagnetic spin sensing, quantum timing, robotic chemistry and ESP32 signal engineering",
+  "edition_label": "MORNING · TECHNICAL DISCOVERY",
+  "cover_topics": "Physics · Materials · Experiment design · ESP32",
+  "language": "en",
+  "timezone": "America/Boise",
+  "published_at": "2026-10-14T08:46:50.570Z",
+  "reporting_cutoff": "2026-10-14T02:30:00-06:00",
+  "editor_note": "Seven substantial technical explanations, led by a new spin-selective microscope and an attosecond interferometer whose phase can reveal quantum light. Another mathematical study scrutinizes the Born rule; a dry electrode and autonomous catalysis system put mechanisms into real laboratories. The ESP32 chapters analyze newly added raw RF transmission and an open-source signed OTA state machine, with source inspection and implementation limits. Each article distinguishes experiments, theory, author tests and illustrative calculations. No politics or general-news filler.",
+  "front_page": [
+    "altermagnet-spin-probe",
+    "quantum-attosecond-delay",
+    "born-rule-postulates",
+    "longitudinal-dry-electrodes",
+    "autonomous-catalysis",
+    "esp-sdr-transmit",
+    "esp32-signed-ota"
+  ],
+  "articles": [
+    {
+      "id": "altermagnet-spin-probe",
+      "section": "Physics · Quantum materials",
+      "title": "Helical tunneling detects hidden spin order in a 2D altermagnet",
+      "dek": "An unusual STM tip connects opposing atomic moments to a momentum-dependent spin splitting that vanishes in bulk magnetization.",
+      "timing": "Wang, Yu, Cheng, Xiao et al.; Nature online October 13, 2026; DOI 10.1038/s41586-026-11257-1; peer-reviewed experimental preview.",
+      "sources": [
+        {
+          "publisher": "Wang et al. · Nature",
+          "title": "Atomic-scale spin sensing of a 2D d-wave altermagnet via helical tunneling",
+          "url": "https://www.nature.com/articles/s41586-026-11257-1",
+          "published": "2026-10-13"
+        },
+        {
+          "publisher": "Chinese Academy of Sciences",
+          "title": "Technical account of the helical-edge tunneling microscope",
+          "url": "https://phys.org/news/2026-10-topological-microscope-reveals-evidence-2d.html",
+          "published": "2026-10-13"
+        }
+      ],
+      "paragraphs": [
+        {
+          "heading": "What makes this magnet different",
+          "text": "Ordinary ferromagnets have a net moment; a familiar collinear antiferromagnet can cancel moments and leave many bands spin-degenerate. An altermagnet combines zero total magnetization with momentum-dependent spin splitting. Opposite-spin sublattices are exchanged by a crystalline rotation, so electronic states along different momentum axes need not have the same spin energy. This is a stringent experimental claim: imaging alternating magnetic atoms is not enough to show the predicted momentum-selective effect. Wang and colleagues investigated KV2Se2O, looking particularly at its two-dimensional surface layer, using atomic imaging, spectroscopy in a magnetic field and quasiparticle interference.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "A schematic d-wave exchange splitting is Delta(kx,ky)=Delta0[cos(kx a)-cos(ky a)], with momentum components kx and ky, lattice scale a and amplitude Delta0. Interchanging the crystal axes reverses the sign. This equation is an illustrative symmetry pattern, not a numerical fit to KV2Se2O. It explains why averaging over orientations can obscure a very real spin-resolved electronic structure. A useful experiment must retain both atom positions and momentum direction, and ideally supply a spin filter that changes selectivity in a controlled way.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "heading": "The instrument is itself a topological material",
+          "text": "The group fabricated scanning tunneling tips from alpha-Bi4Br4, a higher-order topological insulator with helical edge states. In a helical channel, the propagation direction is tied to spin expectation; changing the sample-voltage polarity changes which tunneling direction contributes. By shaping the crystal with a focused ion beam, the researchers made those channels accessible at an atomically sharp tunneling contact. Unlike simply attaching a permanent ferromagnetic coating, the probe uses an electronic edge property to create its selectivity. That idea is transferable to other measurements where the sensor's own band structure can discriminate a hidden property.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "At the surface, atomic registration resolved two related vanadium sublattices and a density-wave lattice modulation. Bias-dependent image contrast yielded checkerboard patterns consistent with opposing local moments. Defect-associated excitations extending along perpendicular crystalline directions shifted in opposite ways under magnetic field, supplying a distinct spin-sensitive test. Quasiparticle interference supplied the crucial momentum information: Fourier maps made with the helical tip showed the dominant X/Y scattering anisotropy rotating by 90 degrees upon bias reversal. Ordinary nonmagnetic tips did not show the same reversal. These cross-checks make a single structural contrast artifact a less adequate explanation.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "heading": "What is established",
+          "text": "The converging observations support a d-wave altermagnetic spin response in the surface of KV2Se2O. They do not show an engineered spin transistor, establish an identical bulk magnetic state, or measure device-ready spin-injection efficiencies. The accepted-article preview is peer reviewed, but further independent repetitions with different topological tips and candidate materials would test generality. The technical advance is a combined real-space and momentum-space diagnostic: instead of trying to infer all magnetic order from net magnetization, the experiment asks how symmetrically related electronic states and sublattice sites respond under controlled reversal.",
+          "refs": [
+            1,
+            2
+          ],
+          "kind": "analysis"
+        }
+      ]
+    },
+    {
+      "id": "quantum-attosecond-delay",
+      "section": "Physics · Attosecond quantum optics",
+      "title": "A measured attosecond delay may belong to the probe light",
+      "dek": "Theory predicts squeezed-light photon statistics appear as a phase shift in electron interferometry, creating a second use for an ultrafast timing technique.",
+      "timing": "Li, Zhang, Xiao, Li, Lu and Zhou; Physical Review Letters 137, 163201, published October 13, 2026; DOI 10.1103/qygr-6xcg; theoretical research.",
+      "sources": [
+        {
+          "publisher": "Li et al. · Physical Review Letters",
+          "title": "Photon-statistics time delay in quantum attosecond photoelectron interferometry",
+          "url": "https://journals.aps.org/prl/accepted/10.1103/qygr-6xcg",
+          "published": "2026-10-13"
+        },
+        {
+          "publisher": "APS Physics",
+          "title": "Time Delay Probes Quantum Light",
+          "url": "https://physics.aps.org/articles/v19/s125",
+          "published": "2026-10-13"
+        }
+      ],
+      "paragraphs": [
+        {
+          "heading": "What RABBIT actually measures",
+          "text": "Attosecond photoemission does not measure an escaping electron's travel time directly. The RABBIT technique illuminates atoms with an extreme-ultraviolet harmonic train and a delayed infrared probe. An electron can arrive at the same final energy through absorption of one probe photon from a lower harmonic or emission of one probe photon from a higher harmonic. These pathways interfere, producing a modulated photoelectron sideband. A convenient model is S(tau)=A+B cos(2 omega tau+phi): tau is relative delay, omega is the infrared angular frequency, and phi is the observed interference phase.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "In ordinary treatments the probe field is approximately classical; one corrects known phase contributions and interprets the residual as a photoemission delay. The new calculation asks what happens when the infrared state is quantum mechanically nonclassical, specifically squeezed vacuum. Such a state has correlated fluctuations in field quadratures and photon number rather than a single deterministic amplitude. Electron-photon transitions respond to those correlations. Li and collaborators find that the complex second-order anomalous photon moment, written <a^2>, contributes an additional interference phase. That phase can look like tens of attoseconds even though it reflects probe statistics rather than a change in electronic travel time.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "heading": "A worked phase scale",
+          "text": "An 800-nanometre infrared field has a period near 2.67 femtoseconds. Since the sideband beats at twice the optical angular frequency, its phase repeats approximately every 1.33 femtoseconds. A hypothetical 20-attosecond apparent time shift then corresponds to 2 pi times 20/1330, roughly 0.094 radians. This is my scale calculation from the simplified formula, not a measured value in the authors' experiment. It shows why tiny phase changes can masquerade as physically meaningful delays when converted to time units.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "The authors also extend the formalism to a three-sideband configuration that can recover the fourth-order anomalous field moment <a^4>, potentially making the spectrometer more sensitive to the field's quantum fluctuations. That suggests a striking role reversal: a technique normally used to characterize electron emission could instead characterize quantum optical states. No new ultrafast laboratory measurement is reported by this paper. A future demonstration would need to prepare and characterize the squeezed probe, track losses and exclude instrumental phase drifts. The result is a prediction about interpreting an interferometer, not evidence that established classical-light measurements suddenly cease to work.",
+          "refs": [
+            1,
+            2
+          ],
+          "kind": "analysis"
+        }
+      ]
+    },
+    {
+      "id": "born-rule-postulates",
+      "section": "Physics · Quantum foundations",
+      "title": "The additivity hidden inside derivations of quantum probability",
+      "dek": "A logical analysis explains why assigning weights to combined measurement outcomes remains a distinct assumption, even when dressed as normalization or decision theory.",
+      "timing": "Jiaxuan Zhang; Physical Review A 114, 042208, October 13, 2026; DOI 10.1103/mqy7-s2db. Mathematical study; preprint originally March 6, 2026.",
+      "sources": [
+        {
+          "publisher": "Zhang · Physical Review A",
+          "title": "Summing to uncertainty: On the necessity of additivity in deriving the Born rule",
+          "url": "https://journals.aps.org/pra/accepted/10.1103/mqy7-s2db",
+          "published": "2026-10-13"
+        },
+        {
+          "publisher": "Zhang · arXiv",
+          "title": "Earlier preprint",
+          "url": "https://arxiv.org/abs/2603.06211",
+          "published": "2026-03-06"
+        },
+        {
+          "publisher": "John B. DeBrota · APS Physics",
+          "title": "Quantum Probability Requires Probability",
+          "url": "https://physics.aps.org/articles/v19/133",
+          "published": "2026-10-13"
+        }
+      ],
+      "paragraphs": [
+        {
+          "heading": "The mathematical target",
+          "text": "The Born rule maps a quantum state to probabilities of measured outcomes. For a pure state the probability of a basis result i is the squared magnitude of its amplitude; more generally it is p(E)=Tr(rho E), where rho is the density matrix and E represents a possible detector outcome. Why this specific map rather than another? Foundational programs have attempted to derive it from symmetry, rational decisions or other structural principles. Jiaxuan Zhang audits the logical assumptions of five major approaches instead of running a new quantum experiment.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "Zhang examines Gleason's theorem, Busch's extension, Deutsch-Wallace decision arguments, Zurek's environment-assisted invariance, and Finkelstein-Hartle reasoning. The result is that additivity and noncontextuality are not logically interchangeable, and some form of additivity is indispensable in the examined derivations. Additivity means mu(A or B)=mu(A)+mu(B) when outcomes A and B exclude each other. Noncontextuality means the weight assigned to a measurement effect should not depend on which compatible other outcomes accompany it. A proof may invoke one explicitly and embed the other within an apparently innocuous normalization condition.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "heading": "Why regrouping outcomes matters",
+          "text": "Imagine a detector distinguishing A, B and C, while a second data analysis merges A and B into one category. A probability assignment should give the same combined weight whether the categories were grouped before or after counting. Without additivity, assigning weights to the detector's individual records does not by itself guarantee this. In mathematical reconstructions, finite sums, continuous limits and countably infinite partitions demand still more care. Requiring strong consistency over all normalized partitions can quietly encode precisely the probability-like structure the argument was supposed to derive.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "This is not a claim that experiments have falsified the Born rule or that quantum randomness has been explained away. The new result concerns dependencies among mathematical postulates. When someone says that probability emerges from deterministic amplitudes with no probabilistic assumption, the crucial question becomes whether assumptions about preferences, equal partitions or consistency already require outcome weights to add. The wider transferable lesson is to inspect hidden dependencies in elegant derivations: a theorem can be mathematically correct while the philosophical description of what it derived 'from nothing' overstates its independence.",
+          "refs": [
+            1,
+            3
+          ],
+          "kind": "analysis"
+        }
+      ]
+    },
+    {
+      "id": "longitudinal-dry-electrodes",
+      "section": "Technology · Materials and sensing",
+      "title": "Carbon-nanotube electrodes target the real source of wearable model drift",
+      "dek": "A reported two-week calibration-free EMG interface moves engineering effort upstream from classifiers to stable electrical contact with skin.",
+      "timing": "Wen et al.; Nature Communications, online October 13, 2026; DOI 10.1038/s41467-026-78169-6; accepted peer-reviewed preview, limited abstract-level quantitative access.",
+      "sources": [
+        {
+          "publisher": "Wen et al. · Nature Communications",
+          "title": "Multi-day recalibration-free electrophysiology interface based on carbon nanotube thin film dry electrodes",
+          "url": "https://www.nature.com/articles/s41467-026-78169-6",
+          "published": "2026-10-13"
+        }
+      ],
+      "paragraphs": [
+        {
+          "heading": "The overlooked sensor component",
+          "text": "Surface electromyography detects electrical differences associated with muscle activation, but its raw signal is filtered by the contact between electrode and skin. A conductive gel reduces initial impedance for conventional wet electrodes; drying, skin motion, sweat and contact changes can alter the coupling from one day to the next. A gesture classifier trained on yesterday's voltages may then fail even though the user's intended movement is unchanged. Changing algorithms can mask that drift, but the root cause is a time-varying physical measurement interface. A longitudinal sensor should therefore be evaluated over days, not just in a single carefully adjusted session.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "Wen and colleagues describe a thin-film carbon nanotube dry electrode intended to remain electrically useful and mechanically conformal over sustained wear. Conductive nanotube networks can be made into flexible sheets, and the material/process challenge is to keep low-noise contact while accommodating real skin deformation. The group reports multichannel myoelectric operation for 14 days without repeated calibration. The online accepted-paper preview does not supply enough accessible measurements for this digest to claim a particular accuracy percentage, cohort size, contact impedance or uncertainty interval. The two-week duration is an attributed report, not independent clinical validation.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "heading": "How physical drift becomes software drift",
+          "text": "For intuition, write a simplified channel model Vout(t)=G(t) Vmuscle(t)+Vmoving(t)+Vnoise(t), with G the electrode and acquisition transfer behavior. In reality G is frequency dependent, but the conceptual distinction is useful: if it changes its gain or phase across days, every model feature derived from that voltage can shift. Better material contact reduces the burden placed on downstream inference. An engineering benchmark should freeze the feature extractor and classifier, compare longitudinal performance with wet or ordinary dry electrodes, and record remounting, motion and sweat conditions. Retraining during the trial makes it harder to isolate the electrode's contribution.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "A thin compliant conductor is not automatically a reliable wearable. Breathability and comfort, lead attachments, adhesive chemistry, wash durability, skin irritation, repeated placement and manufacturing variation may control whether it works outside a laboratory. The present study suggests a particularly useful metric: how long a sensor preserves the meaning of its signals without a user repeatedly re-teaching a controller. That systems view applies equally to capacitive touch, strain sensing and wearable EEG: eliminating variation at the physical interface can sometimes do more for model robustness than a larger model trained to tolerate variation.",
+          "refs": [
+            1
+          ],
+          "kind": "analysis"
+        }
+      ]
+    },
+    {
+      "id": "autonomous-catalysis",
+      "section": "Technology · Automated scientific discovery",
+      "title": "A reinforcement-learning robot finds four chiral reactions in a month",
+      "dek": "A policy trained in a chemistry simulator drives real asymmetric-catalysis experiments, with reported discoveries rather than just automated sample preparation.",
+      "timing": "Klochowicz, Kassir, Parida and Granda; Nature Communications, October 13, 2026; DOI 10.1038/s41467-026-78271-9. Experimental report, methods below qualified where only early abstract was accessible.",
+      "sources": [
+        {
+          "publisher": "Klochowicz et al. · Nature Communications",
+          "title": "Reinforcement learning guided robotic platform that investigates and discovers asymmetric reactions",
+          "url": "https://www.nature.com/articles/s41467-026-78271-9",
+          "published": "2026-10-13"
+        }
+      ],
+      "paragraphs": [
+        {
+          "heading": "Why a robot needs a policy, not just a sequence",
+          "text": "Automated chemistry already excels at executing predetermined matrices of temperatures, catalysts and reagents. Discovery is harder because each result should change which experiment is worth doing next. Asymmetric synthesis adds a second dimension: producing the desired molecular structure is not enough when one mirror-image enantiomer may be preferred. Enantioselectivity, reaction yield, and exploratory value can pull experiment selection in different directions. Patryk Klochowicz and colleagues report a platform in which a deep reinforcement-learning policy selects actions in a defined chiral-phosphoric-acid-catalysis landscape.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "The policy was first trained in a digital twin of asymmetric catalysis, then transferred to a robot running physical reactions. In generic reinforcement learning, observations define a state, a policy chooses an action, and a reward shapes future choices. The paper's accessible abstract identifies condition scouting, discovering chiral products, catalyst screening and substrate-scope mapping as its workflow. It does not specify the exact input variables, reward weights or neural-network design in the preview. Inventing those details would be especially damaging because a learned controller can be sensitive to which reward is optimized and which experimental errors the simulator represents.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "heading": "What happened in the laboratory",
+          "text": "Across 30 days the team reports more than 3,000 decisions and four highly enantioselective transformations, including an axially chiral molecular product and three allene syntheses; one involves a pyrrolopyrrole unit. This is a measurable end-to-end demonstration of a closed-loop search, though 3,000 decisions must not be equated with 3,000 separate wet-lab reactions. An allene can carry axial chirality because its perpendicular substituent planes create distinguishable mirror forms. A basic score is enantiomeric excess, ee=|nR-nS|/(nR+nS). A mixture of 90 molecules of one handedness and 10 of the other would have 80% ee. That numerical example is illustrative, not an author result.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "The important architecture is the boundary between a fast, fallible simulated experiment and a slow, expensive physical one. Training in a twin helps search policies cheaply, but reality exposes inaccurate chemical models, contaminated samples and unexpected side reactions. This work demonstrates that an adaptive policy can yield useful discoveries within its selected catalytic domain. It does not show unrestricted invention of any target molecule or solve reproducibility across other laboratories. More detail on catalyst identities, exact ee, sample counts and analytical uncertainty requires inspecting the full accepted manuscript and supplementary datasets rather than inferring it from a short abstract.",
+          "refs": [
+            1
+          ],
+          "kind": "analysis"
+        }
+      ]
+    },
+    {
+      "id": "esp-sdr-transmit",
+      "section": "ESP32 · Software-defined radio",
+      "title": "ESP32-S3 software-defined radio now has a transmit path",
+      "dek": "Hackaday's new TX development opens waveform experiments, but source documentation exposes important limits in tuning, data transport and RF state ownership.",
+      "timing": "Hackaday October 13, 2026; cyber-murmel/esp-sdr-zephyr source and documentation with latest inspected commits October 12, 2026. Author tests are not independent certification.",
+      "sources": [
+        {
+          "publisher": "Elliot Williams · Hackaday",
+          "title": "ESP-SDR Can Now Transmit",
+          "url": "https://hackaday.com/2026/10/13/esp-sdr-can-now-transmit/",
+          "published": "2026-10-13"
+        },
+        {
+          "publisher": "cyber-murmel · GitHub",
+          "title": "Zephyr ESP-SDR source and README",
+          "url": "https://github.com/cyber-murmel/esp-sdr-zephyr",
+          "published": null
+        },
+        {
+          "publisher": "cyber-murmel · engineering record",
+          "title": "Hardware quirks and mitigations",
+          "url": "https://github.com/cyber-murmel/esp-sdr-zephyr/blob/main/doc/hardware-quirks.md",
+          "published": null
+        },
+        {
+          "publisher": "cyber-murmel · engineering tests",
+          "title": "Hardware-in-loop and two-board validation procedures",
+          "url": "https://github.com/cyber-murmel/esp-sdr-zephyr/blob/main/doc/testing.md",
+          "published": null
+        },
+        {
+          "publisher": "ESPARGOS · upstream research",
+          "title": "Original ESP32 receive SDR code",
+          "url": "https://github.com/ESPARGOS/esp-sdr",
+          "published": null
+        }
+      ],
+      "paragraphs": [
+        {
+          "heading": "The Wi-Fi radio as a waveform peripheral",
+          "text": "Below Wi-Fi packets there is a receiver producing quadrature components I and Q, and a transmitter whose DAC and modulation path create radio waveforms. Earlier ESP-SDR demonstrations had unlocked access to receive-side samples; an October 13 Hackaday update describes the addition of sample playback through transmission hardware. The Zephyr port builds on ESPARGOS research and exposes both capture and transmit interfaces. This is not equivalent to using the documented Wi-Fi API to broadcast arbitrary packets. Raw waveform mode bypasses many of the protocol boundaries that normally make the controller easy to use, while exposing its clocks, buffers, filtering and radio-state quirks.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "The repository documents very different chip capabilities. Its ESP32-S3 path can make captures of 256–16,380 complex samples at 80, 40 or 16 megasamples per second and run a gapless capture ring. On that chip, TX supports burst sample playback at 40 or 80 MS/s and a paced streaming option near 40 MS/s divided by an integer, requiring configured PSRAM. The ESP32-C6 and C5 are different: the author describes CPU-paced receive and transmit streaming up to about 250 kilosamples per second, not the S3's raw hardware rates. Treat these as implementation documentation rather than independently measured limits for every dev board.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "heading": "A numerical bandwidth trap",
+          "text": "At 40 million complex samples per second, assuming a representation of two 16-bit integers per sample means 4 bytes each, or 160 MB/s. This is an illustrative 32-bit complex encoding calculation, not the actual measured USB throughput or necessarily the driver's packed format. It immediately explains why the project needs finite capture windows, decimation, buffering, and multiple host transports. Its `osmosdr` mode offers a HackRF-like USB interface for spectrum applications, while another path supports VITA 49.2 streams over USB CDC-NCM. Keeping signal samples off the network stack can also avoid fighting with the same radio being repurposed as the sensor.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "The nominal tuning API accepts a wide numerical range, but an API argument is not the synthesizer specification. For the S3 the documented PLL lock region is approximately 1.8 to 2.8 GHz; invalid settings can return range errors. The library also takes exclusive use of the Wi-Fi hardware, so Wi-Fi scanning and association cannot operate simultaneously as though this were a second radio. Its analog low-pass filters, power stages, sample timing and on-chip RAM placement remain physical constraints. A broad frequency slider on a screen should not be mistaken for hardware that covers every frequency on that slider.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "heading": "What the two-board tests actually show",
+          "text": "The repository includes a software-defined O-QPSK IEEE 802.15.4 physical layer and a two-board regression harness exchanging frames between an S3 software radio and a C6 native radio. The procedure includes channels 11, 15, 20 and 25, batches of 100 frames of 100 bytes at 5 ms spacing, and acknowledgment tests. Transmitted frames reported successful must arrive without corruption or duplication; limited transmitter-side failures are recorded separately. This substantiates the author's PHY experiments, not a complete Zigbee stack or independent radio conformance certification. The same app collection contains QAM and OFDM packet-link explorations.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "The hardware-quirks notes are particularly valuable: forced receive gain can silently lapse after minutes and raise a quiet noise floor by as much as 30 dB, so the library periodically reapplies it. On an ESP32-C6, a reset could leave modem configuration inherited from earlier firmware until it was explicitly reinitialized. These failures explain why 'the register value is correct' or 'the chip reset' is not adequate verification of RF state. Bench work should use appropriate attenuation and confinement. The reusable lesson is a lifecycle-aware SDR architecture: control hardware ownership, explicitly restore radio state, verify sample throughput, and test real frames between real boards rather than trusting a simulated waveform.",
+          "refs": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "kind": "analysis"
+        }
+      ]
+    },
+    {
+      "id": "esp32-signed-ota",
+      "section": "ESP32 · Firmware lifecycle",
+      "title": "Signed firmware is only the first step in a safe OTA update",
+      "dek": "A recent r/esp32 library adds signed release metadata, byte-level integrity, slot health checks and rollback—but cannot make single-copy filesystem updates atomic.",
+      "timing": "r/esp32 post October 4, 2026; SKL-OTA source revision October 7, 2026, library version 1.1.0. Source-inspected engineering example, not an independent security audit.",
+      "sources": [
+        {
+          "publisher": "Martin Abbott · r/esp32",
+          "title": "Built an interactive web demo that emulates ESP32 OTA updates",
+          "url": "https://www.reddit.com/r/esp32/comments/1wxg3zn/built_an_interactive_web_demo_that_emulates_esp32/",
+          "published": "2026-10-04"
+        },
+        {
+          "publisher": "mabbott2011 · source",
+          "title": "SKL-OTA repository and documentation",
+          "url": "https://github.com/mabbott2011/SKL-OTA",
+          "published": null
+        },
+        {
+          "publisher": "mabbott2011 · implementation",
+          "title": "OTA image verification and rollback guard code",
+          "url": "https://github.com/mabbott2011/SKL-OTA/blob/main/src/SKLOta.cpp",
+          "published": null
+        },
+        {
+          "publisher": "mabbott2011 · signing tool",
+          "title": "Offline OTA release signing tool",
+          "url": "https://github.com/mabbott2011/SKL-OTA/blob/main/tools/ota_release.py",
+          "published": null
+        },
+        {
+          "publisher": "Espressif · ESP-IDF",
+          "title": "OTA images, pending verification and rollback lifecycle",
+          "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/system/ota.html",
+          "published": null
+        }
+      ],
+      "paragraphs": [
+        {
+          "heading": "A download is not a deployment",
+          "text": "An OTA system can report that every firmware byte reached flash while the device remains unusable. The wrong board image can boot with missing peripherals, a new build can freeze during initialization, or old signed firmware can be replayed. The ESP32 platform already provides alternate app partitions and bootloader rollback states; the interesting engineering is combining those primitives with a release-specific trust policy and an actual post-boot health contract. An October 4 r/esp32 post points to SKL-OTA, an Arduino-ESP32 library whose implementation and release tool make those design choices inspectable.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "heading": "Authenticate what is being authorized",
+          "text": "The host tool signs a canonical message containing a product context, board name, monotonically increasing build number, byte count and SHA-256 image hash using ECDSA P-256. The private signing key stays outside the deployed firmware; the device verifies through an embedded public key and rejects a release with an inappropriate identity or build number. Crucially, a signature over only the raw firmware does not directly authenticate the update instruction that this exact device should now run this exact version. Binding the metadata and hash into one signature closes that gap at the application protocol level, assuming the key and running firmware remain trusted.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "After checking the manifest, the updater writes incoming bytes into the inactive OTA slot and computes a hash as they arrive. It switches the boot slot only after the complete reconstructed image matches the signed digest. An optional compressed network representation decompresses before the same digest check. The active application stays in its previous slot during transfer. All this depends on a real partition table with sufficient OTA slots and an appropriately configured rollback-capable bootloader; an arbitrary ESP32 Arduino firmware image does not acquire those capabilities automatically when a library is added.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "heading": "The boot is a provisional verdict",
+          "text": "On the first start after installation the new app is pending verification. An application-defined test can check whether essential functions genuinely work before marking the image valid. SKL-OTA includes a default minimum uptime expectation and a timeout around ten minutes, plus timer-based handling intended to restart a newly installed program stuck in a nonresponsive path. Restarting while the image is still pending permits the ESP-IDF bootloader to choose the older known-good application. The timer must actually have been initialized and the bootloader state must be correct; a promise of rollback is not enough without exercising boot-failure cases.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "text": "There are important trust and persistence boundaries. Application-level build checks are not identical to hardware-enforced Secure Boot or eFuse antirollback. A mechanism that protects the app partition does not automatically protect shared flash configuration, calibration data or a mutable filesystem. The library offers separately signed filesystem images and delays writing them until new firmware passes its health test. Yet a single shared data partition remains an in-place operation: losing power during that write may leave it incomplete, even though executable rollback succeeds. The source records and retries unfinished writes but cannot turn one physical copy into two.",
+          "refs": [
+            1
+          ],
+          "kind": "reporting"
+        },
+        {
+          "heading": "A generalizable update state machine",
+          "text": "A practical update sequence is: verify product identity and release signature; reject replayed build numbers; download into an inactive slot; hash verified bytes; boot provisionally; test required services; commit only after health checks; otherwise revert. A relevant health test might include storage mounting, service acquisition and application data migration, rather than merely proving a main loop runs. This latter example is design analysis, not a list of features the library tests on every board. The repository has CI and host tests, but this digest has not established independent security auditing or comprehensive physical fault injection. Treat it as a useful architecture and a test target, not a substitute for your own reliability qualification.",
+          "refs": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "analysis"
+        }
+      ]
+    }
+  ]
+}
