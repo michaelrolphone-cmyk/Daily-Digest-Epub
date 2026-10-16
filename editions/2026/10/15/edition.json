@@ -251,7 +251,8 @@
           "text": "Additivity is the rule that probabilities of mutually exclusive alternatives sum: P(A or B) = P(A) + P(B) when A and B cannot occur together. Countable additivity extends the formula to a countably infinite set of disjoint alternatives. These constraints are more informative than simply insisting that a collection of probabilities be nonnegative and sum to one. They connect the probabilities assigned to individual detector clicks with the probability assigned when those clicks are deliberately grouped into a coarse-grained detector bin. A proposed probability mapping might normalize correctly for one basis yet fail to agree with the same experiment described through a different grouping.",
           "refs": [
             1,
-            2
+            2,
+            3
           ]
         },
         {
