@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "urn:daily-digest:2026-10-17",
+  "date": "2026-10-17",
+  "title": "Daily Digest — October 17, 2026 · Technical Discovery",
+  "summary": "Light–sound coupling, parallel silicon qubits, molecular spins, mobile traps and ESP32 radio experiments",
+  "language": "en",
+  "published_at": "2026-10-17T07:55:00Z",
+  "filename": "daily-digest-2026-10-17.epub",
+  "path": "editions/2026/10/17/daily-digest-2026-10-17.epub",
+  "download_url": "https://raw.githubusercontent.com/michaelrolphone-cmyk/Daily-Digest-Epub/main/editions/2026/10/17/daily-digest-2026-10-17.epub",
+  "media_type": "application/epub+zip",
+  "size_bytes": 23119,
+  "sha256": "5a41339101d12c1458b242355354679b9faa136d94edc50b0e15591fcb4bce1f",
+  "reporting_cutoff": "2026-10-17T01:50:00-06:00",
+  "article_count": 6,
+  "word_count": 3609,
+  "estimated_reading_minutes": 18,
+  "source_count": 13
+}
