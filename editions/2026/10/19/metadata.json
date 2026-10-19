@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "urn:daily-digest:2026-10-19",
+  "date": "2026-10-19",
+  "title": "Daily Digest — October 19, 2026 · Technical Discovery",
+  "summary": "Null-photon imaging, hidden magnetic order, the cost of one bit, probability calibration and ESP32 signal paths",
+  "language": "en",
+  "published_at": "2026-10-19T08:20:41Z",
+  "filename": "daily-digest-2026-10-19.epub",
+  "path": "editions/2026/10/19/daily-digest-2026-10-19.epub",
+  "download_url": "https://raw.githubusercontent.com/michaelrolphone-cmyk/Daily-Digest-Epub/main/editions/2026/10/19/daily-digest-2026-10-19.epub",
+  "media_type": "application/epub+zip",
+  "size_bytes": 25368,
+  "sha256": "76e7f803637ccf243dcb8623692435055b53cc76ea7a56fff9f807964c20a85b",
+  "reporting_cutoff": "2026-10-19T08:20:41.300Z",
+  "article_count": 7,
+  "word_count": 3952,
+  "estimated_reading_minutes": 20,
+  "source_count": 14
+}

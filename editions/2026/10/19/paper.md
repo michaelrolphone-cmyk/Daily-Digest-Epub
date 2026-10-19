@@ -1,0 +1,189 @@
+# Daily Digest — October 19, 2026 · Technical Discovery
+
+Null-photon imaging, hidden magnetic order, the cost of one bit, probability calibration and ESP32 signal paths
+
+Reporting cutoff: 2026-10-19T08:20:41.300Z (America/Boise)
+
+Today we learn why null detector events can form an optical image, how zero-moment magnetism can be measured atomically, and why near-Landauer erasure is a calculated prospect rather than a measured memory-chip specification. A detailed AI-method study and three microcontroller projects explain how to turn constrained hardware and imperfect forecasts into useful systems. Sources span September 24–October 17 and are dated individually; these are recent studies and builds, not claims that every result happened today.
+
+## Physics · Quantum optics — An image made from the time bins in which no photons arrived
+
+A thermal-light correlation experiment shows that a null detection can still convey information about a remote object's shape.
+
+Chen et al., Physical Review A 114, 043723, published 15 October 2026; full manuscript subscription-restricted, abstract and APS synopsis consulted.
+
+In conventional imaging each picture element registers light from a corresponding region of an object. Ghost imaging deliberately breaks that direct association. A bucket detector integrates light that has interacted with the object, giving intensity information without position. A reference detector, which never looks at the object, resolves a related illumination pattern spatially. Neither output alone contains the desired scene, but fluctuations shared between the two arms allow the spatial response to be reconstructed statistically. The new experiment changes the most surprising ingredient: which detection outcomes are retained. [1] [2]
+
+Meixue Chen, Yiqi Song and collaborators report a thermal-light version of this arrangement. Its fluctuating photon statistics provide correlations between split reference and signal arms; an entangled photon-pair source is not required. They select time bins where the relevant detector registers zero photons, discarding photon-containing events for the image estimator. Averaging the corresponding spatially resolved reference outcomes nevertheless retains a map of how likely zero detection was under different illumination patterns. The journal describes the mechanism in terms of photon-number projection measurements and thermal photon statistics. [1] [2]
+
+A zero is an outcome with a probability, not a missing record. In an illustrative simple Poisson counter, if μ is the mean detected photon number during a bin, P(n=0)=exp(-μ). With μ=0.2 the chance of no count is roughly 82%, whereas μ=1 gives approximately 37%. That numerical illustration is not a fit to the reported experiment: real thermal light has a different photon-number distribution. It explains the logic. Transmission through an object changes the probability of the null outcome, and a separately recorded correlated pattern provides the missing spatial reference. [1]
+
+Reconstruction therefore uses the history of trials, including their timing, rather than a magical zero-intensity photograph. Photons were generated, and the object was illuminated over the experiment. The retained subset contains no selected detector clicks; other bins did contain photons and are excluded. This is not proof that all object interactions were avoided, nor a claim of imaging without supplying light. It is evidence that the likelihood of observing nothing can encode a spatially dependent physical quantity. [1]
+
+Conditional selection costs samples. A null-only estimator must accumulate enough repeated illumination patterns to distinguish a tiny change in the probability of zero counts from fluctuations. Detector inefficiency, thresholding, dark counts, reference-arm noise and correlations across time bins can influence the inferred contrast. To claim lower dose or a performance advantage, one would need measured reconstruction error at equal incident illumination, total acquisition time and detector efficiency. The abstract establishes the principle; its accessible summary does not establish a universal sensitivity improvement. [1] [2]
+
+The experiment sharpens a general distinction in inference: the absence of an event is informative when the process would have produced the event at a state-dependent rate. A timed packet timeout, an undetected particle or a zero signal in a properly calibrated assay is not automatically a blank value. It changes the likelihood of the hypotheses under comparison. Ghost imaging is unusual because the spatial information exists across two channels and emerges only after correlating a reference with a carefully selected set of null events. [1]
+
+The paper is valuable as a measurement-concept demonstration rather than a new camera product. Its specific claim is that correlations of zero-count temporal bins in thermal light suffice for ghost-image reconstruction. The magnitude of any engineering advantage remains to be determined by controlled head-to-head imaging trials, not inferred from the striking phrase 'zero photons'. [1]
+
+### Sources
+
+1. [Chen et al., Physical Review A — Ghost imaging with zero photons](https://journals.aps.org/pra/abstract/10.1103/qr1f-ctyp) — 2026-10-15.
+
+2. [APS Physics — Imaging with Zero Photons](https://physics.aps.org/articles/v19/s135) — 2026-10-15.
+
+## Physics · Spin textures — Probing a magnet whose total moment is zero using a helical edge
+
+Real-space magnetic structure and momentum-resolved scattering converge on surface altermagnetism in a vanadium compound.
+
+Wang, Yu, Cheng and collaborators, Nature, published 13 October 2026; related arXiv preprint first posted 29 December 2025. Journal abstract and preprint information examined.
+
+A ferromagnet aligns spin moments and develops macroscopic magnetization. An ordinary compensated antiferromagnet has oppositely oriented sublattices and no net magnetization. Altermagnetism allows zero total moment yet spin-split electronic states, with the spin orientation reversing as one rotates the crystal momentum. The key is symmetry: spatial operations relate sublattices with opposite moments while producing different electronic responses along different momentum-space directions. A magnetometer that averages the whole specimen would conceal this order. [1] [2]
+
+The phrase d-wave altermagnet describes the angular symmetry of the spin splitting, not superconducting pairing. A schematic response proportional to cos(2θ) changes sign between orthogonal directions in momentum space, with θ the electron's momentum angle. Thus spin splitting can be strong in particular valleys and cancel when averaged across the crystal. To verify the state experimentally, one would like both an atomically registered map of the opposing spin structure and a spin-sensitive view of the electron scattering geometry. [1] [2]
+
+Zhuying Wang and colleagues studied the surface of KV2Se2O. Their scanning-tunnelling probe incorporates helical edge modes of the higher-order topological insulator α-Bi4Br4. These modes couple propagation direction with spin orientation and can make tunnelling selectively sensitive to electronic spin. That is a different measurement from simply reading local charge density with an unpolarized STM tip. In a suitable geometry the contrast becomes sensitive to how the surface spin structure couples to the probe. [1]
+
+The investigators registered the two vanadium sublattices with a density-wave lattice modulation and observed spatial patterns compatible with checkerboard antiferromagnetic ordering. Magnetic-field-dependent spectra also showed that unidirectional quasiparticle excitations along two orthogonal crystalline axes shift in opposite energy directions, with a response predominantly perpendicular to the surface. The directional difference is informative precisely because a uniform magnetic response would not naturally alternate this way between the symmetry-related axes. [1]
+
+To observe momentum-space behavior without a bulk momentum spectrometer, the team used quasiparticle interference. Electrons scatter from surface defects, producing standing waves in the local spectrum. Fourier transforming maps of those waves identifies characteristic scattering vectors. A spin-sensitive anisotropy between the X and Y valleys reverses with tunnelling bias, which the authors interpret as the momentum signature of d-wave altermagnetism. The spatial and reciprocal-space results support the same underlying symmetry. [1] [2]
+
+Several limits separate this result from a finished spintronics platform. The conclusion pertains to the observed surface layer, and spin-selective tunnelling depends on the probe–sample interface. The accessible publication material does not report an integrated switch, a transported spin-current lifetime, practical write energy or a manufacturable room-temperature device. Nor does zero net magnetization imply zero local magnetic field under every surface condition. The appropriate claim is microscopic evidence of a particular compensated, momentum-dependent spin order. [1]
+
+The most reusable technique is methodological. Instead of identifying a hidden state through one signature, combine atomic registration, perturbation by an applied field and reciprocal-space response. Each constrains a different ambiguity: lattice indexing, magnetic sensitivity and momentum-dependent symmetry. Agreement among all three makes a stronger case than presenting a beautiful magnetic image alone. [1]
+
+### Sources
+
+1. [Wang et al., Nature — Atomic-scale spin sensing of a 2D d-wave altermagnet via helical tunneling](https://www.nature.com/articles/s41586-026-11257-1) — 2026-10-13.
+
+2. [arXiv:2512.23290 — Authors' preprint of helical altermagnet measurement](https://arxiv.org/abs/2512.23290) — 2025-12-29.
+
+## Physics · Cryogenic memory — How a single vortex tests the thermodynamic cost of resetting a bit
+
+The observed dynamics are real; the near-Landauer erasure estimate is numerical rather than a directly measured reset.
+
+Fridman et al., Nature Communications, published 24 September 2026; explicitly a recent background study, not October breaking research.
+
+A vortex in a type-II superconductor confines a quantum of magnetic flux and is encircled by superconducting current. Defects can pin a vortex at preferred locations. If the energy landscape has two nearby minima, the vortex position can represent binary zero or one. That makes one magnetic object, rather than a collection of charge carriers, the state variable of a memory bit. Its switching energetics can be studied by controlling the force applied to the vortex and observing its response. [1] [2]
+
+Nofar Fridman, Itai Keren and collaborators used a niobium film approximately 55 nanometers thick at 4.2 kelvin, with nanoscale double-well pinning potentials. They applied sinusoidal forces of different strengths and frequencies and studied the motion with microscopic magnetic sensing. Weak drives exhibit stochastic resonance, where thermally assisted transitions become correlated with the drive. Strong, slowly varying drives approach an adiabatic regime in which the vortex can follow the changing potential. Those different regimes probe how switching interacts with barriers and thermal noise. [1] [2]
+
+Landauer's principle attaches a thermodynamic price to erasing one unknown bit. If a memory starts with two equiprobable logical states and is forced to one known state, entropy decreases by k_B ln(2). In an ideal isothermal process, at least Q=k_B T ln(2) of heat must be rejected to the environment. Here k_B is Boltzmann's constant and T is absolute temperature. This is a statement about logically irreversible erasure under a defined thermodynamic protocol, not about every ordinary displacement of a particle. [1]
+
+At 4.2 K the numerical scale is minute. Multiplying Boltzmann's constant, 1.380649 × 10^-23 joule per kelvin, by 4.2 K and ln(2) gives approximately 4.0 × 10^-23 joule. Five times that number is about 2.0 × 10^-22 joule. These are my derived reference calculations, not directly recorded calorimeter readings. They describe the theoretical scale for a bath at 4.2 K, ignoring the substantial cost of maintaining refrigeration and of powering the instrument that controls and senses the state. [1]
+
+The authors explicitly note a crucial boundary: their experimental sinusoidal drive is incompatible with a standard Landauer erasure protocol. Their numerical analysis estimates that appropriately manipulated vortex memory could approach the lower bound within about an order of magnitude. The microscope experiments establish real pinning, stochastic response and nearly adiabatic motion; they do not directly demonstrate a complete one-way bit reset operating at five times the Landauer limit in a practical computing system. Headlines that say the entire chip has attained the thermodynamic bound conflate measurement with extrapolation. [1] [2]
+
+Memory also has a retention problem. A very shallow potential barrier reduces the force needed to switch, but thermal agitation can flip the vortex while no switching was requested. Raising the barrier increases retention and may also increase the work or time needed for reliable control. A defensible performance claim requires an error rate, a distribution of switching work, and a temperature-dependent retention interval. Laboratory cryogenic losses, sensing electronics and array addressing belong in any realistic system-level energy accounting. [1]
+
+The result is a useful controlled test bed for microscopic dissipation: the potential geometry, driving protocol and noise can be varied while one vortex remains observable. A future direct demonstration would need a logically defined erase operation, repeated-state preparation and readout, and a complete work ledger. Separating that next step from the observed vortex dynamics makes the present experiment interesting on its own terms. [1]
+
+### Sources
+
+1. [Fridman et al., Nature Communications — Approaching Landauer’s limit in a single superconducting vortex memory bit](https://www.nature.com/articles/s41467-026-77988-x) — 2026-09-24.
+
+2. [APS Physics — Landauer principle explanatory resource](https://physics.aps.org/articles/v11/71) — 2018-07-02.
+
+## Technology · ML methodology — Weather models gained skill by fixing probability distributions instead of trajectories
+
+Debias++ and Persistence++ calibrate the outputs of expensive ensembles for weeks three and four, with real-time competition evidence.
+
+Guan, Mouatadid, Orenstein et al., Nature 14 October 2026; detailed original manuscript arXiv:2604.16238 first posted 17 April 2026.
+
+Weather forecast models integrate a strongly coupled, chaotic system. Predictive detail is useful over days, but small initialization errors and systematic model biases compound over weeks. An ensemble of possible future states expresses uncertainty, yet its frequency distribution may still be too confident or systematically displaced. The authors' question is not whether a neural network can replace atmospheric physics. It is whether a cheap second-stage statistical model can extract more valid probability estimates from already expensive dynamical and machine-learning forecasts at three- and four-week leads. [1] [2]
+
+The proposed probabilistic bias correction (PBC) first turns the forecast members into probabilities over historical weather quintiles. Five bins describe intervals in the climatological distribution, each containing about 20% of the historical observations by construction. Unlike one predicted temperature, these bins can say how much probability belongs in hot, normal or unusually cool outcomes. The study's forecast targets are global 1.5-degree grid cells, including near-surface temperature, precipitation and mean sea-level pressure over days 19–25 and 26–32. [1] [2]
+
+PBC contains two light-weight correction paths. Debias++ learns location-, calendar-date- and quantile-dependent corrections from historical forecast errors. Persistence++ blends a forecast with recent observed conditions and seasonal climatology, extracting slow-changing signals such as persistent anomalies. Each output is projected onto a valid cumulative distribution function so that its cumulative probabilities cannot decrease as the threshold rises. Averaging the two projected corrections brings complementary information together without modifying the physical model that produced the original ensemble. [1]
+
+Consider a toy ensemble that assigns 60% probability to the warmest quintile in a location where similar past forecasts verified warmest only 35% of the time. A calibration model can reduce the forecast probability without claiming a precise temperature displacement. Those values are illustrative, not the paper's data. The correction can change both location and spread of a predicted distribution. This differs fundamentally from replacing every modelled temperature with temperature minus two degrees, which fixes a mean bias but not underdispersion or tail risk. [1]
+
+The authors score distributions using ranked probability skill score, RPSS, relative to climatological probabilities. A score above zero is better than that baseline, while negative means the forecast is worse. In a 2016–2024 historical evaluation, PBC increased skill over operationally debiased ECMWF at approximately 98% of precipitation grid cells, 91–92% of temperature cells and 89–91% of pressure cells. Raw ECMWF's precipitation RPSS was around 0.023 in one comparison, which PBC approximately tripled; tripling a small RPSS is not equivalent to tripling deterministic prediction accuracy. [1] [2]
+
+The group also tested its combined corrected forecasts, called MicroDuet, in ECMWF's real-time 2025 AI Weather Quest. The submission led the evaluated systems across variables and week-three/week-four horizons in its reported season against operational models and many research teams. Daily incremental retraining was constrained to observations and model forecasts that would have existed at the forecast issue date. This is important because reanalysis of historical weather becomes available later, and retrospective experiments can accidentally cheat by using information from the future. [1]
+
+Quantile calibration does not guarantee that an individual flood or extreme temperature event is predicted. The authors separately evaluate upper and lower 5% tails with Brier scores, where rare-event sample sizes and local data quality matter greatly. They also depend on sufficiently stable patterns in biases and recent observations. The larger lesson reaches other machine-learning systems: an accurate downstream uncertainty layer can be cheaper and more operationally useful than rebuilding a sophisticated upstream model, provided validation respects real data-availability boundaries. [1]
+
+### Sources
+
+1. [Guan et al., Nature — Enhancing AI and dynamical subseasonal forecasts with probabilistic bias correction](https://www.nature.com/articles/s41586-026-11126-x) — 2026-10-14.
+
+2. [Guan et al., arXiv — Enhancing AI and Dynamical Subseasonal Forecasts with Probabilistic Bias Correction](https://arxiv.org/abs/2604.16238) — 2026-04-17.
+
+## ESP32 · Hackaday · Display transport — A one-inch DOS arcade runs no DOS locally: the protocol is the invention
+
+Dirty rectangles, rendering acknowledgements and decode-aware encoding make an ESP32-S3 a capable remote terminal.
+
+Hackaday project coverage 17 October 2026; Juha Lilja's original Micro Arcade source inspected 19 October.
+
+The most informative detail about Micro Arcade is what the ESP32-S3 does not do. The M5Stack AtomS3R client has a 128-by-128 screen, accelerometer and one pushbutton, but it does not emulate DOS, load game files or know what DOOM is. It runs stock UIFlow2 MicroPython and exchanges input and pixels with a computer. A Python server handles frame conversion; a native doomgeneric process renders DOOM, while other DOS games use headless DOSBox through js-dos WebAssembly under Node. The tiny cabinet is a thin terminal made to look like an arcade machine. [1] [2]
+
+Each full frame in RGB565 occupies 128 × 128 × 2 = 32,768 bytes, before UDP framing. At 30 full frames a second that would represent almost one megabyte per second of uncompressed pixels, with significant interpreter and allocation overhead. Instead the server finds regions that changed and transmits dirty rectangles. It considers solid-fill blocks, raw RGB565, compressed blocks and JPEG; its cost model estimates network transfer time plus client decode and per-datagram overhead. The encoding with fewest bytes need not be fastest to display. [1] [2]
+
+Packets use UDP port 20002 and a small binary header consisting of a 0x4D magic byte, message type and 16-bit session number. The HELLO transaction advertises screen dimensions and supported decoders, so the sender need not assume every firmware build supports every compression. Input messages carry button flags, sequence values and accelerometer readings in milli-g, rather than already interpreted game actions. About 18 bytes of control data are sent 30 times per second, excluding network overhead. Calibration and game-specific response can therefore remain entirely on the server. [1]
+
+Loss and acknowledgement state are central. Suppose a sender encodes frame C as a delta from B, but the client still shows A because B's packet was lost. Even if C arrives intact, rendering it over A produces stale areas or visual corruption. The project instead tracks the last frame acknowledged by the receiver and uses that state when deciding what to send next. Datagram pacing matters as well: the MicroPython receiver can retain only a limited number of pending packets, so sending an entire rectangle burst at line rate may be counterproductive. [1]
+
+The firmware has to make choices about Wi-Fi power saving, display update granularity and memory allocations. Rendering a rectangle should avoid copying full frames through multiple transient buffers when possible. A useful measurement setup would timestamp server frame capture, rect encoding, UDP delivery, decode start, panel draw and acknowledgement, then repeat under packet loss and congested Wi-Fi. The repository discusses recovery tests, but a universal end-to-end latency distribution has not been independently measured for this digest. [1] [2]
+
+The author describes 28 playable titles in its menu and 41 in the demonstration reel. Those numbers refer to server-hosted software, not games installed in flash or PSRAM. This distinction is relevant to other embedded displays: a small client can show a complicated remote interface without carrying the interface engine, and new content need not require a firmware update. It depends, however, on network availability and a server that can render the pixels. [1]
+
+The transferable engineering lesson is a deliberately narrow embedded protocol: negotiate capabilities, send only changed pixels, choose encodings by actual decode cost, and couple differential updates to acknowledged receiver state. The same architecture can run a laboratory instrument's remote front panel or a low-cost industrial status display, where getting recovery behavior right is more valuable than pretending every peripheral can run a desktop application. [1]
+
+### Sources
+
+1. [Hackaday — 2026 Retrocomputing Challenge: Dollhouse Arcade Cabinet Runs Remote DOS Games](https://hackaday.com/2026/10/17/2026-retrocomputing-challenge-dollhouse-arcade-cabinet-runs-remote-dos-games/) — 2026-10-17.
+
+2. [apn201 on GitHub — Micro Arcade source code and protocol notes](https://github.com/apn201/Micro_Arcade) — Undated reference; checked 2026-10-19.
+
+## ESP32 · r/esp32 · Robotics — Why a 200-hertz robot needs servo feedback, not just fast inverse kinematics
+
+A buffered potentiometer tap and segregated control tasks turn twelve cheap actuators into a measurable machine.
+
+TNY-360 V2 project post r/esp32 4 October 2026; original documentation checked 19 October; some V2 mechanical CAD still under preparation at original post date.
+
+A nominal 200-Hz gait-control loop gives a five-millisecond execution period. That period must accommodate sensor acquisition, posture estimation, gait planning, inverse kinematics and actuator updates without a surprise network callback delaying them. TNY-360 V2 addresses this scheduling conflict using the ESP32-S3's two cores. The project calls core zero its reflex controller and core one its brain, handling sockets, browser controls and orchestration. The described separation is sensible, though a README claim of 200 Hz does not establish a measured worst-case jitter bound during simultaneous streaming. [1] [2]
+
+The hardware uses an ESP32-S3 N16R8 board, twelve MG996R leg servos and two SG90 head servos. A PCA9685 sixteen-channel PWM generator offloads the pulse trains so the CPU does not need to toggle every control pin with software timing. An IMU provides orientation, a VL53L0X ranges nearby objects, an INA219 observes electrical power and an OV2640 camera streams images. The design also includes microphone, speaker, OLED, sensor and battery circuits. Integrating these workloads on one MCU makes priority and bus-ownership design important. [1] [2]
+
+Standard hobby servos accept position commands but hide the potentiometer reading that their internal feedback loop uses. If a joint stalls, an external controller may know only the angle it commanded, not the angle reached. The team modifies the MG996R and buffers its potentiometer node with an op-amp voltage follower on a small PCB. High input impedance avoids drawing appreciable current from the servo's original control circuit; low output impedance helps move the analogue reading across a wiring harness. The controller can then compare measured and desired positions. [1]
+
+A simplified calibration maps potentiometer voltage V to angle θ using known stop readings: θ≈θmin+(V−Vmin)(θmax−θmin)/(Vmax−Vmin). That equation illustrates the principle; it is not an exact extraction of the project's production control algorithm. Backlash, gear hysteresis, supply-voltage variation and flexing legs make angle estimation and foot positioning different quantities. Automatic calibration is described as using stops and current sensing to detect assembly problems and compensate, but the available project descriptions do not establish a universal angular-error specification. [1]
+
+How many operations fit in five milliseconds? At 200 Hz a twelve-joint system has 2,400 joint-reading opportunities per second, before IMU and kinematics work. The mean rate is manageable on an ESP32-S3, but peak latency can arise from shared I2C traffic, ADC settling, cache and PSRAM behavior or mutexes used by networking. Hardware PWM reduces one form of timing pressure; it does not make all other peripheral calls deterministic. A convincing load test would record maximum and percentile loop duration while video, WebSocket updates and audio are active. [1] [2]
+
+The author reports a modular PCB ecosystem to standardize connectors and power distribution, along with web control, SDKs and diagnostics. That is part of the architecture, because a cable intermittently dropping a position-sense line can mimic a controller instability. Battery and motor supply isolation are important when several servos pull current at once. The public post is primary testimony of the design and intended capabilities, not a controlled comparative benchmark against another quadruped platform. [1]
+
+The V2 CAD was described as still being finalized in the October 4 post, so one should distinguish published firmware and electronics from a mechanically frozen V2 release. The transferable idea is broader than robotics: when actuators hide their real state, add an electrically nonintrusive observation path, then reserve predictable execution slots for correcting errors. Faster mathematics cannot compensate for the controller being blind to what the machine actually did. [1]
+
+### Sources
+
+1. [u/FurWaz, Reddit r/esp32 — How far can you push an ESP32-S3? TNY-360 project post](https://www.reddit.com/r/esp32/comments/1wxneu1/how_far_can_you_push_an_esp32s3_mine_is_running_a/) — 2026-10-04.
+
+2. [TNY Robotics on GitHub — TNY-360 source, BOM, boards and servo-feedback design](https://github.com/TNY-Robotics/TNY-360) — Undated reference; checked 2026-10-19.
+
+## ESP32 · Hackaday · RF engineering — DVB-S2 television from the ESP32-C3 Wi-Fi radio: the spectrum tells the story
+
+Host-side FEC and a baseband DAC path make an unconventional radio modem, with real limitations in timing, images and receiver lock.
+
+Hackaday write-up 14 October 2026; SP8ESA spectrum measurements 5 October and 32APSK video tests 9 October 2026.
+
+The ESP32-C3 radio is sold to transmit Wi-Fi and Bluetooth Low Energy, but experimenters have accessed a lower-level in-phase and quadrature path and made it generate different modulation. SP8ESA's ESP32-DATV project turns that path into an amateur digital-television transmitter around 2.3–2.45 GHz. The host PC prepares encoded DVB-S or DVB-S2 symbols and sends them over the chip's native USB Serial/JTAG interface. The C3 shapes the symbols into a complex waveform and uses Wi-Fi DAC/RF circuitry to transmit. It is not a supported generic Wi-Fi driver function or a 10-GHz satellite transmitter. [1] [2]
+
+The division of labor is deliberate. FFmpeg produces the MPEG transport stream; host tools apply DVB framing, error correction and symbol mapping. QPSK carries a nominal two coded bits per symbol, 8PSK three, 16APSK four and 32APSK five before protocol overhead. Inside the C3 a root-raised-cosine pulse-shaping filter with roll-off 0.35 smooths transitions before samples reach the radio path. The MCU avoids doing video compression and heavyweight forward-error-correction construction under strict sample deadlines, but it must maintain sample timing and buffering. [1] [2]
+
+Symbol rate is not DAC sample rate. At the tested 32APSK setting of 250,000 symbols per second, the firmware selected 8 million DAC samples per second, equal to 32 samples per symbol. The oversampling gives the pulse shaper more spectral control and shifts unwanted images farther from the desired signal; it also increases sample throughput and CPU pressure. At a 16APSK test of one million symbols per second the 8-MS/s setting corresponds to eight samples per symbol, showing how the implementation adapts to different modes. [1]
+
+The author's October 5 spectrum measurements for 16APSK at 1 MSym/s found first DAC-image peaks roughly 27–28 dB below the main signal using 8 MS/s. An earlier 2-MS/s prototype had images only 13–14 dB down. At 32APSK 250 kSym/s the October 9 sweep measured first images near plus and minus 8 MHz approximately 40 dB below the main peak, under the reported resolution-bandwidth and averaging conditions. Better images do not imply a clean certified transmitter; the out-of-band spectrum still needs suitable filtering. [1]
+
+Receiver results discriminate attractive RF plots from usable data. For 32APSK at 250 and 125 kSym/s the author reports decoded video and no transport-stream continuity errors during the cited tests. At 66 kSym/s, ten continuity errors occurred over 38 seconds during sweeps. At 33 kSym/s, RF transmission was observed but video lock was not obtained in the tested SDR receiver. These are useful negative as well as positive observations: constellations may be synthesizable even when clock accuracy, noise or receiver configuration prevent uninterrupted end-to-end decoding. [1] [2]
+
+For an indicative capacity bound, one million 8PSK symbols per second times three raw coded bits per symbol gives three million coded bits per second. Multiply by a hypothetical 3/5 FEC rate to obtain 1.8 Mbit/s before pilots, framing and transport-stream overhead. That is derived arithmetic, not a measured video bitrate. Higher-order APSK packs more bits into each symbol but typically requires better signal-to-noise ratio and linearity; a nominal 32APSK mode is not automatically a higher-throughput link in a poor RF channel. [1]
+
+The 2300–2450-MHz operating range, radio DAC images, crystal-ppm compensation and transmit-amplitude compression all constrain practical use. An actual on-air experiment requires lawful frequency authorization and an appropriate filter; adding a power amplifier without spectral cleanup would magnify unwanted emissions. The project reports measured link and spectrum tests, but this digest has not reproduced them or certified emissions. The transferable engineering lesson is to keep complex encoding on a host, use the microcontroller for strictly timed physical output, and evaluate receiver continuity and spectrum together rather than advertising a maximum symbol rate. [1]
+
+### Sources
+
+1. [Hackaday — Using An ESP32-C3's RF Hardware For DVB-S2 Video Transmission](https://hackaday.com/2026/10/14/using-an-esp32-c3s-rf-hardware-for-dvb-s2-video-transmission/) — 2026-10-14.
+
+2. [SP8ESA on GitHub — ESP32-DATV firmware, host encoding, measured spectra](https://github.com/SP8ESA/ESP32-DATV) — Undated reference; checked 2026-10-19.

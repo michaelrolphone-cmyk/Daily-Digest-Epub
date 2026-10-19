@@ -4,6 +4,8 @@
 
 ## 2026-10
 
+- **2026-10-19** — [Daily Digest — October 19, 2026 · Technical Discovery](https://raw.githubusercontent.com/michaelrolphone-cmyk/Daily-Digest-Epub/main/editions/2026/10/19/daily-digest-2026-10-19.epub) · [Read text](editions/2026/10/19/paper.md)
+
 - **2026-10-18** — [Daily Digest — October 18, 2026 · Technical Discovery](https://raw.githubusercontent.com/michaelrolphone-cmyk/Daily-Digest-Epub/main/editions/2026/10/18/daily-digest-2026-10-18.epub) · [Read text](editions/2026/10/18/paper.md)
 
 - **2026-10-17** — [Daily Digest — October 17, 2026 · Technical Discovery](https://raw.githubusercontent.com/michaelrolphone-cmyk/Daily-Digest-Epub/main/editions/2026/10/17/daily-digest-2026-10-17.epub) · [Read text](editions/2026/10/17/paper.md)
