@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "urn:daily-digest:2026-10-20",
+  "date": "2026-10-20",
+  "title": "Daily Digest — October 20, 2026 · Technical Discovery",
+  "summary": "Spin-wave energy traffic, JWST gas spectroscopy, auroral inversion, catalyst lifetimes and the engineering behind ESP32 projects",
+  "language": "en",
+  "published_at": "2026-10-20T08:35:00Z",
+  "filename": "daily-digest-2026-10-20.epub",
+  "path": "editions/2026/10/20/daily-digest-2026-10-20.epub",
+  "download_url": "https://raw.githubusercontent.com/michaelrolphone-cmyk/Daily-Digest-Epub/main/editions/2026/10/20/daily-digest-2026-10-20.epub",
+  "media_type": "application/epub+zip",
+  "size_bytes": 26384,
+  "sha256": "7c6f92de22c668dc4512c06f73f488ab880b10ecf9d910973d6675d8953b033d",
+  "reporting_cutoff": "2026-10-20T02:28:00-06:00",
+  "article_count": 7,
+  "word_count": 3912,
+  "estimated_reading_minutes": 20,
+  "source_count": 18
+}
