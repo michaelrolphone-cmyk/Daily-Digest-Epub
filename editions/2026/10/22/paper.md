@@ -58,7 +58,7 @@ The primary result is experimental individual-collision detection from three ide
 
 1. [Tseng et al., Physical Review Letters — Optomechanical Detection of Individual Gas Collisions](https://journals.aps.org/prl/abstract/10.1103/xtzh-6t1f) — 2026-10-19.
 
-2. [APS Physics commentary — Detecting the Kick of a Single Gas Molecule](https://physics.aps.org/articles/v19/s137) — 2026-10-19.
+2. [APS Physics commentary — Detecting the Kick of a Single Gas Molecule](https://physics.aps.org/articles/v19/136) — 2026-10-19.
 
 ## Physics · Quantum optomechanics — A room-temperature levitated oscillator shares entanglement with departing light
 
