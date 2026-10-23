@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "urn:daily-digest:2026-10-23",
+  "date": "2026-10-23",
+  "title": "Daily Digest — October 23, 2026 · Technical Discovery",
+  "summary": "Quantum interference, encoded-state transfer, correlated matter and practical engineering",
+  "language": "en",
+  "published_at": "2026-10-23T08:01:00Z",
+  "filename": "daily-digest-2026-10-23.epub",
+  "path": "editions/2026/10/23/daily-digest-2026-10-23.epub",
+  "download_url": "https://raw.githubusercontent.com/michaelrolphone-cmyk/Daily-Digest-Epub/main/editions/2026/10/23/daily-digest-2026-10-23.epub",
+  "media_type": "application/epub+zip",
+  "size_bytes": 28289,
+  "sha256": "93696492a7d44ce1842759216fa025ed1104470f14d09b48f1bbe47d298c7217",
+  "reporting_cutoff": "2026-10-23T02:00:00-06:00",
+  "article_count": 7,
+  "word_count": 4801,
+  "estimated_reading_minutes": 24,
+  "source_count": 16
+}
