@@ -1,0 +1,575 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-23",
+  "title": "Daily Digest — October 23, 2026 · Technical Discovery",
+  "subtitle": "Quantum interference, encoded-state transfer, correlated matter and practical engineering",
+  "edition_label": "MORNING EDITION",
+  "cover_topics": "Physics · Quantum devices · Open instrumentation · ESP32",
+  "language": "en",
+  "timezone": "America/Boise",
+  "published_at": "2026-10-23T02:01:00-06:00",
+  "reporting_cutoff": "2026-10-23T02:00:00-06:00",
+  "editor_note": "A guide to this morning's technical discoveries: learn why interference can hold an electron stationary inside a metal; how teleportation is tested for an entire surface-code logical state; what overlapping graphene bands reveal about orbital magnetism; how a low-cost capacitive encoder extracts position; what extreme-cold battery tests really demonstrate; how an ESP32 can host a window manager without a screen; and why explicit Bluetooth resource and security contracts matter. Research dates in each article distinguish recent publication from earlier preprints and projects.",
+  "front_page": [
+    "interference-confined-electrons",
+    "topological-logical-state-teleportation",
+    "semimetallic-graphene-phases",
+    "open-capacitive-linear-encoder",
+    "solid-electrolyte-cold-survival",
+    "tinydesk-esp32-terminal-windows",
+    "arduino-esp32-ble-rewrite"
+  ],
+  "articles": [
+    {
+      "id": "interference-confined-electrons",
+      "section": "Physics · Quantum materials",
+      "title": "An electron can stay trapped inside a conducting metal",
+      "dek": "A frustrated lattice cancels the escape amplitudes of defect states while other electrons remain mobile.",
+      "timing": "Morgan Thinel, Simon Turkel, Sebastian E. Rossi and colleagues; Science, DOI 10.1126/science.adt9825, reported 22 October 2026. Its underlying preprint arXiv:2410.19227 was first posted 25 October 2024, not this week. Experimental scanning spectroscopy with theoretical modelling; full final journal methods were not available for this edition.",
+      "sources": [
+        {
+          "title": "Electronic bound states in the continuum in a 2D metal",
+          "publisher": "Thinel et al., arXiv:2410.19227",
+          "url": "https://arxiv.org/abs/2410.19227",
+          "published": "2024-10-25"
+        },
+        {
+          "title": "Electronic bound states in the continuum in a two-dimensional metal",
+          "publisher": "Thinel et al., Science DOI 10.1126/science.adt9825",
+          "url": "https://www.science.org/doi/10.1126/science.adt9825",
+          "published": "2026-10-22"
+        },
+        {
+          "title": "Quantum interference traps electron waves in metal",
+          "publisher": "Columbia University research account, 22 October 2026",
+          "url": "https://phys.org/news/2026-10-quantum-electron-metal.html",
+          "published": "2026-10-22"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Why does a defect trap an electron in a semiconductor but usually not in a metal? An isolated atomic level inside an energy gap cannot radiate its electron wave into extended states at the same energy because those states are absent. In a metal, there is a continuum of available states at the defect energy. The defect usually hybridizes with them: its spectral line broadens, and an initially localized electron gains pathways to escape. The new result is not that this basic picture was incorrect. It shows a special interference geometry in which energetically available escape channels have vanishing net coupling.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "A localized level whose energy falls within a band of extended states yet does not mix with that band is a bound state in the continuum, or BIC. The condition can be understood by writing a transition amplitude as a sum of contributions from alternative hopping paths. If two comparable paths have amplitudes A and -A, their total amplitude is zero and the associated escape probability, proportional to |A + (-A)| squared, vanishes. This is a model illustration of destructive interference, not a measured two-path amplitude for this crystal. Unlike simple energetic confinement, interference depends on wave phases and orbital geometry.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "Morgan Thinel, Raquel Queiroz, Abhay Pasupathy and collaborators investigated Pd5AlI2, a van der Waals layered metal with frustrated electron hopping. Frustration here means that the orbital and lattice connectivity produce competing hopping pathways which cannot all be simultaneously constructive. It does not mean the sample is an insulator. Its band structure retains conducting states, but the same interference can create an almost flat electronic band and eigenstates spatially confined around certain lattice motifs. A flat band means electronic energy changes comparatively little as crystal momentum varies; reduced group velocity makes localization more plausible but is not itself proof of an exact BIC.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            3
+          ]
+        },
+        {
+          "text": "The experimental signature came from local scanning measurements around naturally occurring atomic defects. Tunnelling spectroscopy probes how many electron states are available at a chosen energy and position: roughly, the differential tunnelling conductance dI/dV maps a local density-of-states feature, subject to the tip and tunnelling matrix element. The researchers observed two defect-associated states localized in space despite overlapping in energy with the metal's extended electronic continuum. Theory associates these with states orthogonal to the available itinerant channels. This spatial localization plus electronic-structure modelling is much stronger evidence than an unusually sharp average spectroscopic peak alone.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            3
+          ]
+        },
+        {
+          "text": "A useful contrast is a conventional Fano resonance, where a discrete state couples to a continuum and the two paths interfere to produce an asymmetric spectral profile. That is evidence of coupling, not isolation. For a BIC the coupling amplitude to the relevant outgoing channel tends toward zero; in an idealized model the decay width can vanish. The actual sample may support quasi-bound states rather than mathematical states of infinite lifetime. Disorder, symmetry breaking, interactions and substrate effects provide routes by which a theoretically protected channel can regain nonzero leakage.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "The researchers' preprint was available in October 2024. The discovery being reported this week is its publication in Science and accompanying institutional explanation, not an experiment claimed to have been performed on 22 October 2026. The accessible preprint abstract identifies two localized states, the crystal, and a frustrated-hopping mechanism, but does not give sufficient calibration details to quote a trapping lifetime, a complete uncertainty budget or a controlled placement yield. These quantities are omitted rather than inferred from visually striking microscopy images.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "text": "There is an engineering distinction between finding a defect-bound electron state and building an addressable quantum device. The present bound states appear around growth defects. A usable array would need reproducible defect creation, position control, stable electronic occupation and verified coupling to readout or other sites. The strongest transferable principle is narrower and important: energy overlap with a conducting band does not guarantee delocalization. Geometry can make the relevant quantum transition matrix element zero, leaving localized and itinerant electronic behavior coexisting in one material.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "topological-logical-state-teleportation",
+      "section": "Physics · Quantum computing",
+      "title": "Teleporting the state of a surface code, not a single bare qubit",
+      "dek": "A 125-qubit processor probes when shared entanglement is sufficient to transfer topologically encoded information.",
+      "timing": "Yiren Zou, Hong-Kuan Xia, Aosai Zhang, H. Wang and collaborators; Nature Physics, DOI 10.1038/s41567-026-03484-0, published 22 October 2026; earlier preprint arXiv:2602.21293 posted 24 February 2026. Peer-reviewed superconducting-device experiment; public abstract, figures and extended-data description accessible, not a full independent reanalysis of raw shots.",
+      "sources": [
+        {
+          "title": "Teleportation transition of surface codes on a superconducting quantum processor",
+          "publisher": "Zou et al., Nature Physics",
+          "url": "https://www.nature.com/articles/s41567-026-03484-0",
+          "published": "2026-10-22"
+        },
+        {
+          "title": "Teleportation transition of surface codes on a superconducting quantum processor, preprint",
+          "publisher": "Zou et al., arXiv:2602.21293",
+          "url": "https://arxiv.org/abs/2602.21293",
+          "published": "2026-02-24"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Quantum teleportation moves an unknown quantum state from one register to another by combining pre-existing entanglement, measurements and classical information. It does not move matter instantaneously and it cannot communicate faster than light. In its textbook form one can teleport one physical qubit: the sender and receiver begin with an entangled pair, the sender performs a joint measurement, and the receiver applies a correction selected by two classical bits. But future error-corrected machines will store valuable states not in one fragile qubit but across many physical qubits. A practical protocol must therefore preserve the encoded logical state, not simply copy a collection of measured bits.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "A surface code encodes information nonlocally in a two-dimensional array of physical qubits. Local measurements of X-type and Z-type stabilizers check whether groups of qubits satisfy the expected parity relations. An individual physical error can disturb a pattern of checks without immediately revealing the logical information itself. A logical error instead corresponds to an error chain that crosses the code in a topologically nontrivial way. The code distance d is, roughly, the minimum weight of a physical error capable of implementing an undetected logical operation under the ideal code model. Raising d can improve protection, but consumes more hardware and makes coherent operations harder.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "Zou and colleagues used a superconducting quantum processor containing 125 qubits to implement teleportation experiments involving rotated surface codes at distances as large as d = 7. They prepared the topological encoded state using a linear-depth unitary circuit. The adjective linear refers to how the preparation circuit depth scales with the code's linear dimension; it is not a declaration that every physical layer is perfectly noiseless. The source paper reports a whole phase diagram rather than only one successful showcase: the team tuned a local entangling gate uniformly and examined whether the logical information survived a measurement-assisted transfer.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "Why would teleportation suddenly work above a threshold? A sufficiently entangled resource can support the long-range correlations needed to reconstruct an encoded logical state. Below that regime, correlations needed for preserving logical distinctions are degraded by insufficient connectivity or noisy entanglement; above it, a decoder can recover information from distributed measurement outcomes. A sharp-looking finite-size crossover is often interpreted by comparing different code distances and checking whether observable curves behave consistently with a transition. Here the reported threshold is a property of this many-body protocol and its gate-family controls, not the familiar physical error-rate threshold of a continuously operating fault-tolerant computer.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "The team also inserted coherent single-qubit rotations. A coherent error differs from a random Pauli flip: its amplitude can interfere constructively or destructively across branches of a circuit. Rotations outside the Clifford set introduce what quantum-information theory calls magic resources, which cannot be captured by stabilizer bookkeeping alone. The surprising result is not that adding arbitrary errors helps. Properly chosen coherent X-plus-Z rotations restore a duality symmetry in the protocol's topological phase, and the reported teleportation phase boundary shifts so that a smaller entanglement resource can suffice.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "The role of decoding is easily understated. At the end of a measurement-based transfer, raw detector bits by themselves do not say what logical state arrived. They encode parities affected by gate faults, imperfect readout and the measurement-induced Pauli frame. The paper describes tensor-network-based machine-learning decoding of experimental bitstrings. This means the observed logical statistics combine actual quantum-device behavior and a nontrivial classical inference procedure. Decoder assumptions, training or optimization and test distributions matter when comparing one protocol against another, even if the physical qubit count is identical.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "Some hardware-scale numbers are available directly from the paper's extended-data description: the median simultaneous single-qubit gate fidelity was 99.94%, median two-qubit CZ fidelity was 99.64%, and median state-readout fidelity was 99.08%. These are operation-level medians, not logical teleportation fidelities. A calculation illustrates why the distinction matters: if twenty independent CZ gates each succeeded with probability 0.9964, the probability that all twenty were ideal would be 0.9964 to the power of twenty, approximately 93.0%. That 93.0% is a derived toy model, not a measured circuit yield, and real errors are neither perfectly independent nor simply all-or-nothing.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "The journal's abstract does not supply a single threshold value with uncertainty or a complete set of logical output fidelities in convenient text. It would be inaccurate to create numerical thresholds from schematic phase-diagram figures. The reported 125-qubit experiment demonstrates controlled topological-state transfer and a tunable entanglement transition inside one superconducting processor. It does not yet establish a network link between distant chips, persistent logical memory across many error-correction rounds, or error rates adequate for arbitrary long quantum programs.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "An engineering consequence is that resources should be compared at the encoded-state level. Counting entangled pairs alone misses the structure of the stabilizers, the symmetry of unwanted coherent rotations and the classical decoder's ability to interpret syndromes. The study provides a design constraint for future modular quantum computing: prepare the correct topological correlations, then test logical transfer as a function of entangling strength and code distance rather than assuming that a high physical-gate fidelity automatically supplies usable logical communication. Its October 22 publication is new; the experimental proposal and preprint are not discoveries made overnight.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semimetallic-graphene-phases",
+      "section": "Physics · Correlated electrons",
+      "title": "Six graphene layers reveal superconducting pockets beside switchable orbital order",
+      "dek": "Overlapping conduction and valence bands expose collective states hidden in the more familiar gapped regime.",
+      "timing": "Jinghao Deng, Jiabin Xie, Hongyuan Li, Xiaomeng Liu and colleagues; Nature Physics, DOI 10.1038/s41567-026-03443-9, published 21 October 2026. Earlier preprint arXiv:2508.15909 appeared 21 August 2025. Peer-reviewed experimental transport study; accessible journal abstract and supplement listing, without an independently checked full uncertainty table.",
+      "sources": [
+        {
+          "title": "Superconductivity and ferroelectric orbital magnetism in semimetallic rhombohedral hexalayer graphene",
+          "publisher": "Deng et al., Nature Physics",
+          "url": "https://www.nature.com/articles/s41567-026-03443-9",
+          "published": "2026-10-21"
+        },
+        {
+          "title": "Superconductivity and Ferroelectric Orbital Magnetism in Semimetallic Rhombohedral Hexalayer Graphene",
+          "publisher": "Deng et al., arXiv:2508.15909",
+          "url": "https://arxiv.org/abs/2508.15909",
+          "published": "2025-08-21"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Graphene is often introduced as a monolayer with a Dirac-cone band structure. Stack six sheets in rhombohedral, or ABC, order and the electronic problem changes. Electrons experience interlayer coupling and a strongly shaped low-energy band structure with large Berry curvature. In accessible energy windows the bands can be flat enough that Coulomb interactions are competitive with kinetic energy. Applying displacement field through a gated heterostructure changes how electrons distribute among layers and can reshape or invert the relevant conduction and valence bands. The result is a tunable laboratory for collective states, not just a thicker sheet of ordinary graphene.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "Previous searches for correlations often studied a gapped or band-separated regime. Deng and collaborators deliberately mapped the semimetallic regime, where the top of the valence band and the bottom of the conduction band overlap in energy. At charge neutrality this can leave electron-like and hole-like Fermi surfaces simultaneously present. An electron pocket contains states whose quasiparticle energies rise away from its occupied core; a hole pocket describes the missing electrons near an otherwise filled band. Transport can contain both contributions, complicating a single-carrier Hall-density interpretation.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "The researchers swept carrier filling and transverse electric displacement field while measuring device transport, then used Fermi-surface analysis to distinguish different regions of the phase diagram. They report correlated insulating states, several superconducting pockets and two kinds of multiferroic orbital-magnetic order. These are not all one state or one uninterrupted transition. They arise in different control-parameter regions, and the distinction matters: a report of magnetic hysteresis under one field configuration should not be treated as the explanation for a superconducting-like transport signal in a separate configuration.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "Two superconducting-like regions occur near an electric-field-induced band inversion where electron and hole pockets coexist. That correlation motivates a dual-carrier pairing hypothesis. A simple one-band picture in which all low-energy carriers share the same sign of charge cannot capture such a landscape. But co-occurrence is not proof that electron–hole attraction is the pairing glue, nor does the accessible abstract provide a universal transition temperature or complete gap-spectroscopy demonstration. It is more precise to describe the paper's relevant observations as superconducting-like transport pockets and to distinguish them from a settled microscopic pairing mechanism.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "The magnetic component is stranger. Orbital magnetism comes from the circulation and Berry-curvature structure of electronic states, not necessarily from ordinary atomic spins aligning. One region exhibits a ferrovalley phase close to zero displacement field; another, at larger fields near charge neutrality, shows ferroelectric orbital magnetism. The latter has magnetic hysteresis that can be reversed by changing an electric field of one polarity. That is a specific form of coupled electric and orbital magnetic order, rather than conventional coercive switching by reversing the magnetic field alone.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "The authors discuss a coupled order parameter schematically of the form Delta P times M. Here Delta P denotes an electric polarization difference between relevant electronic configurations and M the orbital magnetization. Multiplying them is a symmetry-oriented phenomenological way to express a correlated electric and magnetic response; it is not a device power or a measured product in SI units quoted here. Field-dependent hysteresis provides evidence for switchable electronic polarization and coupled order. It does not automatically establish a nonvolatile ferroelectric memory cell with industrial endurance, retention and write-energy specifications.",
+          "kind": "reporting",
+          "refs": [
+            2
+          ]
+        },
+        {
+          "text": "The published work broadens the experimental phase diagram of one carefully fabricated six-layer device platform. The mechanisms tying semimetal Fermi surfaces to paired states and the stability of the orbital order against disorder, temperature and device-to-device variation remain real questions. No absolute uncertainty or sample count should be improvised from the abstract. The useful new concept is that making a correlated band structure semimetallic is not merely losing a useful gap: competing electron and hole pockets can create additional many-body possibilities and new handles for electrically controlled orbital order.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "open-capacitive-linear-encoder",
+      "section": "Technology · Open instrumentation",
+      "title": "A 40-micrometre capacitive ruler made from ordinary circuit boards",
+      "dek": "An STM32 reads position from spatially phase-coded coupling rather than an optical scale.",
+      "timing": "Nick's open-source encoder project, created 18 October 2026 and covered by Hackaday on 22 October 2026. Author's room-temperature measurements, schematics, firmware and test data are published; 40 micrometres is an author-reported electrical accuracy against a Mitutoyo indicator, not an independently reproduced metrology certification.",
+      "sources": [
+        {
+          "title": "An Open Source Linear Capacitive Encoder",
+          "publisher": "Zoe Skyforest, Hackaday",
+          "url": "https://hackaday.com/2026/10/22/an-open-source-linear-capacitive-encoder/",
+          "published": "2026-10-22"
+        },
+        {
+          "title": "Open-Source 40um/1.6thou Capacitive Encoder",
+          "publisher": "Nick, Hackaday.io project",
+          "url": "https://hackaday.io/project/207104-open-source-40um16thou-capacitive-encoder",
+          "published": "2026-10-18"
+        },
+        {
+          "title": "Open-source capacitive linear encoder hardware, firmware and data",
+          "publisher": "nichlock, GitHub",
+          "url": "https://github.com/nichlock/open-linear-scale",
+          "published": null
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Many digital calipers sense displacement without an optical grating. A fixed periodic pattern of conductive plates and a movable printed-circuit pickup interact through capacitance. In a common two-layer demonstration a drive electrode produces an electric field, nearby electrodes shape it, and a receiver detects a position-dependent signal. Since the signal is electrical, there need be no direct sliding contact at the sensor gap. The difficult part is not demonstrating a changing capacitance, but extracting position when electrode shape, humidity, tilt, temperature and wiring all disturb the ideal transfer function.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "Nick's open-source scale uses eight repeating transmitter pads and a receiving structure on a circuit board with a patterned reflector moving relative to the sensor. The transmitter is excited with a programmed sequence, and the receiver's voltage depends on which pads couple most strongly through the reflector at the current relative alignment. The project describes an STM32L4-based implementation with the electrical and mechanical designs released as editable artifacts. It is explicitly an incremental encoder: the position phase repeats every pattern pitch, so software must track periods and establish a reference before reporting a unique absolute coordinate over a long travel.",
+          "kind": "reporting",
+          "refs": [
+            2,
+            3
+          ]
+        },
+        {
+          "text": "A simplified way to model a periodic sensor is to take two demodulated signals in quadrature, I approximately proportional to cos(phi) and Q approximately proportional to sin(phi), and calculate phi = atan2(Q,I). If the electrode pitch is P, an illustrative displacement is x = P phi/(2 pi) modulo P. This is not a verbatim representation of Nick's calibration algorithm; it explains why phase extraction is useful and why a repeat counter is required. The author documents a 5.08 mm repeating scale and eight emitter widths, so a single emitter interval represents approximately 0.635 mm of mechanical displacement. That 0.635 mm is geometry, not the claimed accuracy.",
+          "kind": "reporting",
+          "refs": [
+            2,
+            3
+          ]
+        },
+        {
+          "text": "The electrical path is more elaborate than reading one GPIO pin. The STM32 applies time-separated transmitter patterns; a receiving analog stage accumulates small capacitive charge signals and filters the response before ADC conversion. Repeated samples and synchronous timing distinguish the intended pattern from background interference. The build notes describe sixteen excitation patterns at 16 kHz, yielding a nominal 1 kHz completed position cycle when one pattern occupies each excitation interval. It reports a serial output path for external motion controllers. Signal conditioning, timing and the relation between scale pitch and electrode geometry are transferable to other embedded capacitance sensors.",
+          "kind": "reporting",
+          "refs": [
+            3
+          ]
+        },
+        {
+          "text": "At the mechanical layer the approximately 0.1 mm sensor-to-reflector separation matters as much as the firmware. A smaller gap raises coupling but also amplifies fringe-field effects from spaces between copper pads. The author's logs describe a periodic error near an emitter boundary and show that simply substituting a sinusoidal correction was inferior to a geometry-aware piecewise correction. Increasing the gap with two layers of Kapton tape reduced sensitivity to that boundary pattern, at the cost of lower signal-to-noise ratio. This illustrates a useful design principle: do not use software to compensate for a systematic error that can be reduced by an inexpensive mechanical tolerance change.",
+          "kind": "reporting",
+          "refs": [
+            2,
+            3
+          ]
+        },
+        {
+          "text": "The author reports about 40 micrometres of electrical accuracy at room temperature against a Mitutoyo indicator, while achieving a substantially smaller short-term electrical noise floor in a controlled fixture. Those are different specifications. Resolution is the smallest distinguishable change, repeatability describes consistency across repeated moves, and absolute accuracy includes gain, offset, periodic interpolation error and calibration. A low noise floor is insufficient if every electrode boundary shifts the inferred position. The cited project is an ongoing prototype and does not document comprehensive multi-temperature certification, independent builds or a qualified motion-system installation.",
+          "kind": "reporting",
+          "refs": [
+            2,
+            3
+          ]
+        },
+        {
+          "text": "For a hypothetical closed-loop 3D-printer axis the encoder would observe where the carriage actually is rather than where the stepper controller commanded it to be. That could expose missed steps or belt slip; it would not remove backlash or mechanical compliance by itself. At an assumed carriage speed of 100 mm/s, an ideal 1 kHz measurement cadence gives 0.1 mm motion between updates, a derived sampling illustration not a measured tracking error. The sensing idea is economical because a board pattern replaces a precision optical reader, but real installation would still need grounding, shielding, temperature tests and failure handling.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solid-electrolyte-cold-survival",
+      "section": "Technology · Energy devices",
+      "title": "NASA's battery result separates cold operation from cold survival",
+      "dek": "Solid electrolytes preserve small prototype cells through deep cold, but heaters remain essential.",
+      "timing": "NASA Langley report of SPEARS experimental coin-cell thermal-vacuum tests published 14 October 2026; Hackaday technical coverage 22 October 2026. Small laboratory prototypes only, not flight-qualified packs.",
+      "sources": [
+        {
+          "title": "NASA Develops Batteries to Power Humanity's Return to Moon",
+          "publisher": "Joe Atkinson, NASA Langley",
+          "url": "https://www.nasa.gov/centers-and-facilities/langley/nasa-develops-batteries-to-power-humanitys-return-to-moon/",
+          "published": "2026-10-14"
+        },
+        {
+          "title": "NASA Batteries Survive Extreme Cold And Heat",
+          "publisher": "Bryan Cockfield, Hackaday",
+          "url": "https://hackaday.com/2026/10/22/nasa-batteries-survive-extreme-cold-and-heat/",
+          "published": "2026-10-22"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "A battery contains electrodes and an electrolyte, the medium through which ions move internally as electrons flow through the external circuit. In a conventional lithium-ion cell that electrolyte commonly contains organic liquid solvents. Temperature changes the electrolyte's viscosity, ionic mobility, electrode interfacial reactions and mechanical stresses. Extremely low temperature can make effective charging or discharging impossible even if the electrodes themselves remain chemically intact. The demanding lunar problem is therefore not simply to avoid freezing one component: a power source must survive a long cold soak, warm safely and supply usable electrical energy at the intended operating point.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "NASA's SPEARS program, Solid Power for Extreme Environment Adaptability and Resilience in Space, replaces the liquid electrolyte with solid ceramic or polymer-based material. Glenn Research Center leads the effort, Langley carries out testing, and Ames is developing supporting flight-test electronics. These different materials offer different compromises among ionic conduction, mechanical integrity and contact resistance. A ceramic can be dimensionally stable while still requiring intimate mechanical contact with electrodes; a polymer can be compliant but may have poor low-temperature transport. The NASA announcement does not identify a single universal electrolyte formula or provide full electrochemical impedance spectra, so neither should be invented.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "The reported thermal-vacuum results must be separated into three temperature ranges. Small coin-cell prototypes operated well from approximately minus 60 degrees Celsius to plus 80 degrees Celsius. They were reported to keep operating at minus 80 degrees Celsius, but with reduced performance. Exposure down to minus 170 degrees Celsius and up to plus 100 degrees Celsius caused no observed damage in the reported test. The coldest value is a survival result, not evidence of energy delivery at minus 170 degrees Celsius. The lunar south pole can approach minus 200 degrees Celsius, colder still.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "The practical design is a cold-storage and warm-start architecture. If the electrolyte and interfaces survive severe contraction, an inactive cell can be allowed to cool when it is not powering the rover, then receive a limited heat input before discharge. A useful accounting equation is Q = m c_p Delta T, where m is warmed mass, c_p average specific heat and Delta T the required temperature rise. For an illustrative 0.1 kg assembly, 800 J/(kg K) heat capacity and 100 K increase, Q is 8,000 joules before thermal leakage; a 10-watt heater would take at least about 13 minutes. These are explicitly hypothetical inputs, not NASA's heater or battery specifications.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "The cold-start benefit cannot be evaluated solely by the minimum surviving temperature. A power system must have energy remaining to energize its heater, must control heat losses in vacuum and must prevent cold charging under unsafe conditions. The whole pack needs welds, current collectors, insulation, electronics and thermal interfaces that survive repeated excursions. NASA has not published a comparable commercial-cell control group, cycle-life confidence intervals, energy density or quantified capacity retention across many thermal cycles in this announcement. A claim that the cells outperform ordinary batteries on every metric would go beyond the evidence.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "This is a meaningful material-and-system milestone rather than a finished lunar battery. It shows that a specific family of solid-electrolyte prototypes maintained function much colder than room-temperature consumer batteries are normally specified for, and that even harsher exposure need not destroy them. The distinction between test survival and operating capability is broadly useful in electronics qualification: a device may be allowed to endure an environment while unpowered and still require conditioning before a safe boot or load cycle. The engineering question becomes how much mass and stored energy warming costs, not whether the cell works unaided throughout lunar night.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tinydesk-esp32-terminal-windows",
+      "section": "ESP32 · Community open source",
+      "title": "A window manager on an ESP32 with no display framebuffer",
+      "dek": "TinyDesk sends terminal control codes for windows, applications and mouse input, leaving only rendering to the host.",
+      "timing": "Community project described in an r/esp32 post discovered through an older cached listing, not established as new on 23 October 2026; repository inspected 23 October and describes TinyDesk v0.1.6 developer preview. No independent physical-board frame-rate or RAM benchmark available.",
+      "sources": [
+        {
+          "title": "I built a mouse-controlled desktop for the ESP32",
+          "publisher": "Original r/esp32 community post",
+          "url": "https://www.reddit.com/r/esp32/comments/1wuedgu/i_built_a_mousecontrolled_desktop_for_the_esp32/",
+          "published": null
+        },
+        {
+          "title": "TinyDesk: a mouse-operated desktop drawn in your terminal",
+          "publisher": "tinydesk-project, GitHub repository",
+          "url": "https://github.com/tinydesk-project/tinydesk",
+          "published": null
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "A conventional graphical desktop asks a microcontroller to maintain a pixel framebuffer and drive a display interface. That brings memory, bandwidth and redraw requirements, especially when multiple overlapping windows must be composited. TinyDesk takes a different approach: it runs a window manager and applications on an ESP32, but expresses the visible desktop as text cells and ANSI/VT terminal escape sequences over a communications link. The attached PC's terminal is a renderer, not the computer executing the application logic. This is a useful separation of interface state from presentation hardware, not a claim of a fully self-contained color LCD desktop.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "The core is written in portable C11. TinyDesk uses terminal cursor-position and style commands to draw overlapping windows, a taskbar and application content. A terminal configured for xterm mouse reporting sends back encoded pointer events, while keyboard bytes provide normal text and shortcuts. The board interprets those inputs, updates its own window and application state, and emits a differential stream of changed screen cells. Screen buffers are allocated at startup; updates are not necessarily a complete redraw. This matters because the serial transport carries only terminal differences, not a full RGB frame at every refresh.",
+          "kind": "reporting",
+          "refs": [
+            2
+          ]
+        },
+        {
+          "text": "The supported boards are not interchangeable. The ESP32-C6 version targets an 8 MB flash configuration with the chip's built-in USB Serial/JTAG. The classic ESP32 with PSRAM is documented with 16 MB flash and USB-to-UART running at 921,600 baud. A constrained classic ESP32 build with 4 MB flash limits the console to 80 by 25 and disables server features including SSH and OTA. These differences are consequences of flash, RAM and connection hardware. The C6 is a RISC-V Wi-Fi/BLE SoC, while the original classic ESP32 uses Xtensa cores; neither target should be assumed to implement every peripheral or radio facility of an ESP32-S3.",
+          "kind": "reporting",
+          "refs": [
+            2
+          ]
+        },
+        {
+          "text": "A rough data-rate comparison explains the architecture. An 80 by 25 text screen contains 2,000 cells. If a toy renderer transmitted only one byte of character and one byte of attribute per cell, a full refresh would contain at least 4,000 payload bytes, before positioning or multibyte Unicode overhead. At a raw UART bit rate of 921,600 with ten serial bits per eight-bit byte, the theoretical channel carries about 92,160 payload bytes per second. Continuous 25 full-screen updates would already cost roughly 100,000 bytes per second and exceed that simple bound. This is a derived illustration, not TinyDesk's measured bandwidth; dirty-cell updates are precisely why the design remains plausible.",
+          "kind": "reporting",
+          "refs": [
+            2
+          ]
+        },
+        {
+          "text": "The software includes a shell, files, editor, task and system monitoring, network and MQTT utilities, and Modbus connectivity. The shell is a related submodule, so cloning without the recursive option will omit part of the system needed for a source build. For ESP32-C6, the project documents an ESP-IDF 5.3.1 toolchain and a dedicated port directory. The implementation uses a portable core and platform-specific services, making it possible to test much application logic on Linux or Windows before deploying to hardware. That is a more productive workflow than debugging every layout and input issue over a slow serial cable.",
+          "kind": "reporting",
+          "refs": [
+            2
+          ]
+        },
+        {
+          "text": "Security boundaries differ across the available connections. A USB serial console is locally accessible and the host terminal is trusted to display the escape stream. The optional remote terminal takeover uses unencrypted Telnet; it should not be exposed on an untrusted network. SSH provides encrypted shell and SFTP in supported builds, but the project explicitly says it is not the windowed desktop transport. The default root credential must be changed before remote authentication works, and the firmware license implications of bundled cryptography differ from the core's MIT license. These are operational details, not decorative release notes.",
+          "kind": "reporting",
+          "refs": [
+            2
+          ]
+        },
+        {
+          "text": "The original r/esp32 post is useful as an author demonstration, not independent evaluation of responsiveness or crash resistance. Repository documentation establishes supported features and hardware targets; it does not quantify frame latency under sustained MQTT traffic, the exact RAM footprint of all simultaneous windows, power draw or network throughput. A practical transferable design is to treat a serial terminal as a low-bandwidth, structured display coprocessor and send semantic changes rather than pixels. The resulting user interface remains useful when expensive display buffers are unavailable, provided the reader understands that a host terminal is still required.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arduino-esp32-ble-rewrite",
+      "section": "ESP32 · Software architecture",
+      "title": "Why Arduino-ESP32 v4 rewrote its Bluetooth contracts",
+      "dek": "Unified backends and explicit lifetimes address mistakes that previously hid inside convenient APIs.",
+      "timing": "Lucas Saavedra Vaz, Espressif Developer Portal, 20 October 2026. Article discusses Arduino-ESP32 v4.0.0-RC1 against stable v3.3.12; release-candidate APIs, not a claim that every ESP32 chip supports identical Bluetooth modes.",
+      "sources": [
+        {
+          "title": "Portable BLE by Design: The Bluetooth Rewrite in Arduino ESP32 v4.0",
+          "publisher": "Lucas Saavedra Vaz, Espressif Developer Portal",
+          "url": "https://developer.espressif.com/blog/2026/10/arduino-bluetooth-refactor/",
+          "published": "2026-10-20"
+        },
+        {
+          "title": "Arduino core for ESP32 source and releases",
+          "publisher": "Espressif, GitHub",
+          "url": "https://github.com/espressif/arduino-esp32/releases",
+          "published": null
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "An application often wants to discover nearby devices, connect, enumerate services, read characteristics and subscribe to notifications. The Arduino programming model tries to make that sequence approachable with C++ classes. The underlying ESP32 Bluetooth stack, however, has not been one interchangeable implementation: Espressif exposes Bluedroid and NimBLE backends with different operating details and ownership rules. Old user code could accidentally rely on one backend, keep a dangling remote-object pointer or assume a characteristic permission that was never explicitly chosen. Those are architecture problems even if a basic scan example runs correctly.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "Espressif's 20 October engineering post describes a common BLE API in the Arduino-ESP32 v4.0.0 release candidate. A shared API does not mean both backends are running at once or that their RAM usage and performance are identical. It means application-facing objects such as clients, services and characteristics follow more consistent contracts. Connection metadata is packaged in an explicit BLEConnInfo object, and methods can report a distinct unsupported status rather than silently pretending a feature exists on a particular controller or stack. That moves portability from informal assumptions toward runtime-visible capability negotiation.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "Ownership is an especially important change. In embedded C++, an API that returns a raw pointer to a dynamically created remote service makes it easy to retain that pointer after disconnection or library shutdown. A reference-counted handle can prevent premature destruction while valid users still hold ownership; it also makes the lifetime model easier to document and review. But reference counting does not make an invalid network connection function again. The application still needs to respond to disconnection and teardown, and BLE.end() still invalidates access to the underlying Bluetooth subsystem. A handle's C++ lifetime and a radio link's lifetime are different quantities.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "The rewrite separates a GATT characteristic's operation properties from its security permissions. Being readable, writable or notifiable describes supported procedures; permission rules describe what an unauthenticated or authenticated peer may do. A safe default is closed access unless the characteristic deliberately grants an operation. The revised API also manages the client-characteristic configuration descriptor, CCCD, for notifications rather than making each application assemble a descriptor manually. That reduces one recurring source of interoperability failure, but a device still must negotiate security and obey the GATT contract to avoid exposing sensitive data.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "A migration example captures the difference: a sensor characteristic might permit encrypted reads and support notification while disallowing writes. Conceptually the definition is properties = READ | NOTIFY and permissions = ENCRYPTED_READ, followed by setting the notify payload and letting the stack manage subscription bookkeeping. This is explanatory pseudocode for the separation of roles, not a verified code sample using exact v4 type names. The application must still check which callback fires on connect, how encryption is initiated, and whether older sketches that mixed property and permission flags need source changes.",
+          "kind": "reporting",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "Bluetooth feature availability remains silicon-specific. The original ESP32 can implement Bluetooth Classic as well as BLE, but does not become a Bluetooth 5 controller simply because a new Arduino library defaults to newer features on supported silicon. The ESP32-C6 supports BLE but not Bluetooth Classic Serial Profile; chips with no Bluetooth radio cannot acquire one from an API refactor. Espressif also describes multi-peer Classic BluetoothSerial changes only for compatible controller variants. Release notes and the target's technical reference manual must therefore be checked together before adopting code that compiles across multiple board names.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "This is useful release coverage because the technical change addresses real failure modes: incompatible backend expectations, confused pointer lifetimes, implicit descriptor state and permissive defaults. It is not yet evidence of a specific memory reduction, a measured throughput increase or complete backward compatibility. v4.0.0-RC1 is a release candidate, and existing BLE applications need targeted migration tests: connect and disconnect repeatedly, recreate services, exercise bonded-peer permissions, verify notification subscriptions and check teardown while callbacks are active. The most transferable idea is to encode resource ownership and security intent directly in an API instead of making sketch authors reconstruct invisible state.",
+          "kind": "reporting",
+          "refs": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ]
+}
